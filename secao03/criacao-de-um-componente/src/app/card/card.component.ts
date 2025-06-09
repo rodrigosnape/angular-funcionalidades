@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrl: './card.component.css'
 })
 export class CardComponent {
-
+  plano = {
+    infos:{
+     tipo: "Simples",
+     preco: 100
+    }
+  }
 }
