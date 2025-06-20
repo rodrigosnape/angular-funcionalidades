@@ -21,8 +21,9 @@
     font-size: 40px;
 }
 
-//Verifica os filhos e os pais
-::ng-deep .card-cancel-button{
+//::ng-deep afeta TUDO (os filhos e os pais com o :host)
+//:host não deixa o ng-deep vazar pros lados (tios/irmãos/sobrinhos)
+:host ::ng-deep .card-cancel-button{
     color: black !important;
     background-color: yellow !important;
 }
