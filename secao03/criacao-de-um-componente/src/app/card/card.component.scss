@@ -21,3 +21,8 @@
     font-size: 40px;
 }
 
+//Verifica os filhos e os pais
+::ng-deep .card-cancel-button{
+    color: black !important;
+    background-color: yellow !important;
+}
