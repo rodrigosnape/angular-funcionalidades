@@ -12,7 +12,7 @@ interface IInfos{
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
-  styleUrl: './card.component.css'
+  styleUrl: './card.component.scss'
 })
 export class CardComponent {
   // @ts-ignore
