@@ -20,3 +20,8 @@
     font-weight: 600;
     font-size: 40px;
 }
+
+//Acessa o interior o  slider com a tag mat-slider. Proteje o resto dos componentes que também utilizem a classe
+:host ::ng-deep mat-slider .mdc-slider__track--active_fill{
+    border-color: white !important;
+}

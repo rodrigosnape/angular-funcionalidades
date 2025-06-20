@@ -2,3 +2,8 @@
     color: black !important;
     background-color: yellow !important;
 }
+
+//Acessa TODOS os sliders
+.mdc-slider__track--active_fill{
+    border-color: yellowgreen !important;
+}
