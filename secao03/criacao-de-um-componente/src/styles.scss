@@ -2,7 +2,8 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-
-.emulated{
+//Afeta só o roxo porque ele é Emulated
+//O Laranja é ShadowDom e ele nao é influenciado
+.card-button-cancel{
     background-color: forestgreen;
 }

@@ -13,8 +13,11 @@ interface IInfos{
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss',
-  //Emulated é o default do angular
-  encapsulation: ViewEncapsulation.Emulated
+  //Separa o componente do resto. Como se fosse um iframe
+  //o Componente não pega mais css global
+  //Mas esse componente passa a afetar os filhos sem o ::ng-deep
+  //É como se esse componemte fosse GLOBAL para os filhos
+  encapsulation: ViewEncapsulation.ShadowDom
 })
 export class CardComponent {
   // @ts-ignore
