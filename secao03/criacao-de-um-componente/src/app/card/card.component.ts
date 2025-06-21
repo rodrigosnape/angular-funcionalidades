@@ -13,8 +13,8 @@ interface IInfos{
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrl: './card.component.scss',
-  //Ninguém usa isso. Só serve para causar problemas
-  encapsulation: ViewEncapsulation.None
+  //Emulated é o default do angular
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class CardComponent {
   // @ts-ignore
