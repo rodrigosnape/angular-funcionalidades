@@ -24,3 +24,18 @@
 <br />
 
 <button (click)="logInputText()">Log</button>
+
+<br />
+<br />
+
+<button [attr.title]="buttonTitle">attr.title</button>
+<!-- na maioria dos casos é utilizado o property binding-->
+<button [title]="buttonTitle">Properties -> title</button>
+
+<br />
+<!-- faz um ternário pra inserir ou nao o atributo disabled -->
+<button [attr.disabled]="buttonDisable ? true : null">attr.disabled</button>
+
+<br />
+<!-- faz um ternário pra inserir ou nao o atributo disabled -->
+<button (click)="onButtonClick()">Mudar Props</button>

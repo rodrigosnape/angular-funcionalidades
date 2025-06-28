@@ -10,6 +10,9 @@ export class AppComponent {
   inputType = "text"
   isDisabled = false;
 
+  buttonTitle = 'Título do Botão';
+  buttonDisable = true;
+
   
 
   enableInput() {
@@ -42,5 +45,10 @@ export class AppComponent {
   handleInputEvent(event: Event) {
     const currentText = (event.target as HTMLInputElement).value;
     console.log('Input:', currentText);
+  }
+
+  onButtonClick() {
+    this.buttonTitle = 'Título Alteradooooooooo';
+    this.buttonDisable = !this.buttonDisable;
   }
 }
