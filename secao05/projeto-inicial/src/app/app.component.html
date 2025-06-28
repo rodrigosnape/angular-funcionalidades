@@ -39,3 +39,27 @@
 <br />
 <!-- faz um ternário pra inserir ou nao o atributo disabled -->
 <button (click)="onButtonClick()">Mudar Props</button>
+
+<br />
+<br />
+
+<button style="width:100px; background-color: aqua;">Botão 0</button>
+<br />
+<button [style.width]="widthButton1" [style.backgroundColor]="backgroundColorButton1">Botão 1</button>
+<br />
+<button [style.width.px]="widthButton2" [style.backgroundColor]="'pink'">Botão 2</button>
+<br />
+<!-- background-color ou backgroundColor-->
+<button [style]="'width:140px; backgroundColor: brown;'">Botão 3</button>
+<br />
+<button [style]="{width:'150px', backgroundColor: 'orange'}">Botão 4</button>
+<br />
+<button [style]="stylesObj">Botão 5</button>
+
+<br />
+<button (click)="updateStyleObj()">Atualizar Obj 5</button>
+
+<button (click)="updateStyleObjCorrect()">Atualizar Obj correto 5</button>
+
+<br />
+<button (click)="updateWidth()">Atualizar width 2</button>

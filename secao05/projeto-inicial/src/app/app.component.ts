@@ -13,6 +13,11 @@ export class AppComponent {
   buttonTitle = 'Título do Botão';
   buttonDisable = true;
 
+  widthButton1 = '110px';
+  widthButton2 = '130';
+  backgroundColorButton1 = 'blue';
+  stylesObj = {width:'160px', backgroundColor: 'gray'}
+
   
 
   enableInput() {
@@ -50,5 +55,23 @@ export class AppComponent {
   onButtonClick() {
     this.buttonTitle = 'Título Alteradooooooooo';
     this.buttonDisable = !this.buttonDisable;
+  }
+
+  updateStyleObj(){
+    //Não alerta o Angular pra atualizar o html
+    this.stylesObj.width = '170px';
+  }
+
+  updateStyleObjCorrect() {
+    //Alerta o Angular pra atualizar o html
+    //Ele tem que receber um novo objeto !!!
+    this.stylesObj = {
+      width: '170px',
+      backgroundColor: 'lightblue'
+    };
+  }
+
+  updateWidth(){
+    this.widthButton2 = '200';
   }
 }
