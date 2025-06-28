@@ -63,3 +63,19 @@
 
 <br />
 <button (click)="updateWidth()">Atualizar width 2</button>
+
+<br />
+<br />
+
+<button [class.green-button]="true" (click)="isGreenButton = true">Verde</button>
+<button [class.red-button]="isRedButton" (click)="isGreenButton = false">Vermelho</button>
+<br />
+<!-- Exemplod de css direto no HTML --> 
+<button [class]="'red-button green-button'">Verde</button>
+
+<br />
+<!-- mais utilizado -->
+<button [class]="{
+    'red-button': isRedButton,
+    'green-button': isGreenButton,
+}">Objeto</button>

@@ -16,7 +16,10 @@ export class AppComponent {
   widthButton1 = '110px';
   widthButton2 = '130';
   backgroundColorButton1 = 'blue';
-  stylesObj = {width:'160px', backgroundColor: 'gray'}
+  stylesObj = {width:'160px', backgroundColor: 'gray'};
+
+  isRedButton = true;
+  isGreenButton = true;
 
   
 
