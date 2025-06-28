@@ -1,4 +1,15 @@
-<input id="meu-input" [value]="inputText" [type]="inputType" [disabled]="isDisabled" />
+<input 
+    id="meu-input" 
+    [value]="inputText" 
+    [type]="inputType" 
+    [disabled]="isDisabled" 
+    (keyup)="handleInputKeyup($event)"
+    (input)="handleInputEvent($event)"
+    />
+    <!-- 
+    [] - Property Binding ->Envia do TS pra propriedade do HTML
+    () - Event Binding -> Envia do HTML para o TS
+    -->
 
 <br />
 
