@@ -1,4 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, numberAttribute } from '@angular/core';
+
+function handlePlanType(value: string): string {
+  console.log('handlePlanType:', value);
+  return value.toUpperCase();
+}
 
 @Component({
   selector: 'app-card',
@@ -6,18 +11,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./card.component.scss'],
 })
 export class CardComponent {
-  //Alias, opcional, para o nome da propriedade
-  @Input({required: true, alias: 'planPriceAlias'}) planPrice: number = 0;
-  
-  private _planType: string = '';
-  
-  @Input('planTypeAlias') set planType(value: string) {
-    this._planType = value.toUpperCase();
-  }
-
-  get planType(): string {
-    return this._planType;
-  }
+  //numberAttribute é usado para converter o valor de entrada em um número
+  @Input({required: true, alias: 'planPriceAlias', transform: numberAttribute}) planPrice: number = 0;
+  @Input({alias: 'planType', transform: (value:string) => handlePlanType(value) }) planType: string = '';
 
   buttonClicked(event: boolean) {
     console.log('Botão clicado no card!', event);
