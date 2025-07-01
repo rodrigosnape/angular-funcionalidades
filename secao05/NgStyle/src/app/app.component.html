@@ -1,0 +1,21 @@
+  <button (click)="increaseFontSize()">+A</button>
+  <button (click)="toggleFontColor()">{{ buttonText }}</button>
+
+<h1 [ngStyle]="{
+  'font-size': fontSize + 'px',
+  'color': textColor,
+  }"
+  >[ngStyle] - código simples. Prefiro essa</h1>
+
+  <h1 [style.font-size.px]="fontSize"
+      [style.color]="textColor"
+  
+  >[style.color] - melhor performance</h1>
+
+
+    <h1 [style]="stylesString"
+  
+  >[style] - mais trabalhoso</h1>
+
+<h1 [ngStyle]="stylesObj"
+  >[ngStyle] - quase melhor - é mais trabalhoso</h1>
