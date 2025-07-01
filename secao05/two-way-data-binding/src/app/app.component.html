@@ -1,0 +1,29 @@
+
+<h1 style="color:brown;">Nome [ngModel] e (ngModelChange):</h1>
+<small>Jeito porco</small><br/>
+<input
+  type="text" 
+  [ngModel]="name" 
+  (ngModelChange)="handleInputChange($event)"
+    />
+<h1>Nome digitado: {{ name }}</h1>
+
+
+
+<h1 style="color:green;">Texto [(ngModel)]:</h1>
+<small>Jeito certo</small><br/>
+<input 
+  type="text" 
+  [(ngModel)]="text" 
+    />
+<h1>Texto digitado: {{ text }}</h1>
+
+
+<h1 style="color:lawngreen;">Texto [(ngModel)] e (ngModelChange):</h1>
+<small>Jeito certo E TAMBÉM tratar o valor após inserido</small><br/>
+<input 
+  type="text" 
+  [(ngModel)]="name"
+  (ngModelChange)="handleInputChange($event)" 
+    />
+<h1>Texto digitado: {{ name }}</h1>
