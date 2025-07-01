@@ -1,0 +1,22 @@
+<div class="list">
+  <p style="background-color: white; text-align: center;">index, odd, event, last e first são propriedades do ngFor</p>
+  <div 
+    class="item" 
+    *ngFor="
+      let person of listPeople; 
+      let i = index; 
+      let isOdd = odd; 
+      let isLast = last; 
+      let isFirst = first; 
+      let isEvent = even;"
+    [class.item--odd]="isOdd"
+    [class.item--highlighted]="personSelectedIndex === i"
+    (click)="selectPerson(i)"
+  >
+    <p class="item__name">{{ i }} - {{ person.name }}</p>
+    <p class="item__age">{{ person.age }} anos</p>
+
+    <p *ngIf="isFirst">É o primeiro</p>
+    <p *ngIf="isLast">É o último</p>
+  </div>
+</div>
