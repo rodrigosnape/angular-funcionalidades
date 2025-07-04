@@ -1,0 +1,17 @@
+<input type="text" #meuInput/>
+
+Valor: {{ meuInput.value }}
+
+
+<br/><br/>
+
+<button (click)="changeDetection()">Atualizar</button>
+
+<br/><br/>
+
+<p>Mais simples e eficiente: Two-way data binding</p>
+
+<input type="text" [(ngModel)]="meuValor"/>
+
+Valor: {{ meuValor}}
+
