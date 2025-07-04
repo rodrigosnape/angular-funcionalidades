@@ -1,17 +1,25 @@
-<input type="text" #meuInput/>
+<input type="text" #meuInput ngModel/>
 
 Valor: {{ meuInput.value }}
 
+<button (click)="clicou(meuInput)">Atualizar</button>
 
-<br/><br/>
 
-<button (click)="changeDetection()">Atualizar</button>
 
-<br/><br/>
+<div class="primo">
+ 
+</div>
 
-<p>Mais simples e eficiente: Two-way data binding</p>
 
-<input type="text" [(ngModel)]="meuValor"/>
+<!-- ngIf cria o contexto -->
+<div class="pai" *ngIf="true">
+  <input type="text" #inputPai ngModel/>
+  <!-- para funciona tem que remover o *ngIf do filho -->
+  <!-- Pai: {{ inputFilho.value }} -->
 
-Valor: {{ meuValor}}
-
+  <!-- ngIf cria o contexto assim como o ngFor e ISOLA o conteúdo-->
+  <div class="filho" *ngIf="true" >
+    <input #inputFilho ngModel>
+    Filho: {{ inputPai.value }}
+  </div>
+</div>
