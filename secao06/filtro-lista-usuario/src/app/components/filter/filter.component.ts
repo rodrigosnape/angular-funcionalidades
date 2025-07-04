@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IFilterOptions } from 'src/app/interfaces/filter-options.interface';
 
 @Component({
   selector: 'app-filter',
@@ -6,18 +7,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./filter.component.scss']
 })
 export class FilterComponent {
-  foods =[
-  {
-    value: 'steak-0',
-    viewValue: 'Steak'
-  },
-  {
-    value: 'pizza-1',
-    viewValue: 'Pizza'
-  },
-  {
-    value: 'tacos-2',
-    viewValue: 'Tacos'
+  filterOptions: IFilterOptions ={
+    name: undefined,
+    startDate: undefined,
+    endDate: undefined,
+    status: undefined,
+  };
+  statusList = [
+    {
+      description: 'Ativo',
+      value: true
+    },
+    {
+      description: 'Inativo',
+      value: false
+    }
+  ];
+
+  onFilter(): void {
+    console.log('Filtro aplicado:', this.filterOptions);
   }
-]
 }
