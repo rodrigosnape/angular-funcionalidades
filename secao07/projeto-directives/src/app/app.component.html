@@ -12,3 +12,14 @@
 <br/>
 <button appDisabled>appDisabled - Meu botão prop diretiva</button>
 <br/>
+
+<p style="background-color: orange; color:white">Parágrafo Normal :)</p>
+
+<!-- Só aceita string -->
+<p [attr.style]="'background-color: orange; color:white;'">Attr</p>
+
+<p [style]="'background-color: orange; color:white;'">Property</p>
+
+<p [style]="{backgroundColor: 'orange', color:'white'}">Property OBJ</p>
+
+<p appStyle>appStyle</p>
