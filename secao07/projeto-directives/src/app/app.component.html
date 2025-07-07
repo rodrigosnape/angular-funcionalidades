@@ -1,3 +1,24 @@
+<h4>InputBackgroundDirective</h4>
+
+<!-- input de diretiva é sem [] mesmo-->
+<input 
+  appInputBackground="blue" 
+  tColor="white"
+/>
+<br/><br/>
+<input 
+  appInputBackground="green" 
+  tColor="yellow"
+/>
+
+<br/><br/>
+<!-- a propriedade do app component é passada do jeito tradicional-->
+<input 
+  appInputBackground
+  [appInputBackground]="appBgColor"
+  tColor="red"
+/>
+
 <h4>====== HostListener </h4>
 
 <input appListener type="text" />
