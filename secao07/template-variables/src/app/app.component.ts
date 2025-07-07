@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
+import { FilhoComponent } from './filho/filho.component';
 
 @Component({
   selector: 'app-root',
@@ -7,22 +8,13 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 })
 export class AppComponent {
 
-  //Pega o elemento pela # (não é o id) que é o template variable
-  @ViewChild('meuInput') meuInputEl!: ElementRef<HTMLInputElement>
+  //Pega a instância do Componente. Diferentemente de um HTML comum
+  //Melhor é usar o @ViewChild é usar @Input e @Output
+  @ViewChild('filhoComp') filhoCompRef!:FilhoComponent;
 
-  @ViewChild('minhaDiv') minhaDivEl!: ElementRef<HTMLDivElement>
-
-  updateInputText(){
-    console.log(this.meuInputEl);
-    //nativeElemento é o elemento propriamente dito
-    this.meuInputEl.nativeElement.value = 'Texto Atualizado!';
+  hello(){
+    this.filhoCompRef.dizerOi();
+    this.filhoCompRef.message = 'Eu disse OI!!!';
   }
 
-  focus(){
-    this.meuInputEl.nativeElement.focus();
-  }
-
-  updateDivContent(){
-    this.minhaDivEl.nativeElement.textContent = 'Conteúdo atualizado';
-  }
 }
