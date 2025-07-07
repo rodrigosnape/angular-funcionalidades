@@ -1,6 +1,14 @@
-Meu Input: 
-<input type="text" #meuInput/>
+<button
+  #meuButton
+  class="btn-{{ i }}"
+  *ngFor="let btn of buttonList; let i = index"
+  (click)="changeColor($event)"
+>{{ btn }}</button>
 
-<!-- Dá problema com o static = true
-  <input type="text" #meuInput *ngIf = "true"/>
--->
+<button (click)="resetButtons()">Resetar</button>
+
+
+<button (click)="first()">Pegar Primeiro</button>
+
+
+<button (click)="remove()">Remover Item</button>
