@@ -1,25 +1,11 @@
-<input type="text" #meuInput ngModel/>
+Meu input: <input type="text" #meuInput ngModel/>
 
-Valor: {{ meuInput.value }}
+<button (click)="updateInputText()">Atualizar</button>
 
-<button (click)="clicou(meuInput)">Atualizar</button>
+<button (click)="focus()">Foco</button>
 
-
-
-<div class="primo">
- 
-</div>
+<div #minhaDiv>Conteúdo Inicial.</div>
 
 
-<!-- ngIf cria o contexto -->
-<div class="pai" *ngIf="true">
-  <input type="text" #inputPai ngModel/>
-  <!-- para funciona tem que remover o *ngIf do filho -->
-  <!-- Pai: {{ inputFilho.value }} -->
+<button (click)="updateDivContent()">Mudar Conteúdo</button>
 
-  <!-- ngIf cria o contexto assim como o ngFor e ISOLA o conteúdo-->
-  <div class="filho" *ngIf="true" >
-    <input #inputFilho ngModel>
-    Filho: {{ inputPai.value }}
-  </div>
-</div>

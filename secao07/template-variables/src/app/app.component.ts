@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,25 +6,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  clicou(input: HTMLInputElement){
-    console.log(input.value);
 
-    input.value = 'Valor atualizado!';
+  //Pega o elemento pela # (não é o id) que é o template variable
+  @ViewChild('meuInput') meuInputEl!: ElementRef<HTMLInputElement>
+
+  @ViewChild('minhaDiv') minhaDivEl!: ElementRef<HTMLDivElement>
+
+  updateInputText(){
+    console.log(this.meuInputEl);
+    //nativeElemento é o elemento propriamente dito
+    this.meuInputEl.nativeElement.value = 'Texto Atualizado!';
   }
-}
 
-const funcaoPai = () => {
-  let pai = 'Pai';
+  focus(){
+    this.meuInputEl.nativeElement.focus();
+  }
 
-  const funcaoFilha = () => {
-    let filha = 'Filha';
-
-    pai = 'Pai atualizado!';
-    console.log(pai, filha);
-
-    const funcaoNeto = () =>{
-      filha = 'Filha atualizada!';
-      pai = 'Pai atualizado novamente!';
-    }
+  updateDivContent(){
+    this.minhaDivEl.nativeElement.textContent = 'Conteúdo atualizado';
   }
 }
