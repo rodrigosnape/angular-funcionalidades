@@ -23,3 +23,23 @@
 <p [style]="{backgroundColor: 'orange', color:'white'}">Property OBJ</p>
 
 <p appStyle>appStyle</p>
+
+===================
+
+<p class="meu-texto">Normal</p>
+
+<p [attr.class]="'meu-texto'">attr.class</p>
+
+<!-- Limitado à propriedade normal do elemento -->
+<p [className]="'meu-texto meu-size'">Prop className</p>
+
+<!-- Recomendado. Criação do povo do Angular. Mais abrangente -->
+<p [class]="{
+  'meu-texto': true,
+  'meu-size': true
+}"></p>
+
+<p appClass>appClass</p>
+
+
+
