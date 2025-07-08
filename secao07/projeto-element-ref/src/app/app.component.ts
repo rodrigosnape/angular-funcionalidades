@@ -32,6 +32,16 @@ export class AppComponent implements OnInit, AfterViewInit{
    this.divEl.nativeElement.textContent = 'Sou uma div!';
    this.divEl.nativeElement.classList.add('minha-classe');
   }
+
+  createElement(){
+    //o document é global e não específico do app component
+    const novaDiv = document.createElement('div');
+
+    novaDiv.textContent = 'Sou a nova div!';
+    novaDiv.classList.add('bg-red');
+
+    this._elRef.nativeElement.appendChild(novaDiv);
+  }
 }
 
 class Pessoa{
