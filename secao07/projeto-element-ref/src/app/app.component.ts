@@ -43,10 +43,3 @@ export class AppComponent implements OnInit, AfterViewInit{
     this._elRef.nativeElement.appendChild(novaDiv);
   }
 }
-
-class Pessoa{
-  falar(){ console.log('oláaaaaaaaaaaaa');}
-}
-const pessoa: Pessoa = new Pessoa();
-
-pessoa.falar();
