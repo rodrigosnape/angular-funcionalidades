@@ -1,10 +1,7 @@
-import { Directive, HostBinding, Input } from '@angular/core';
+import { Directive } from '@angular/core';
 
 @Directive({
   selector: 'app-card-header',
   host: {'class': 'ca-c-card__header'}
 })
-export class CardHeaderDirective {
-  @Input()
-    @HostBinding('class') color: string = '';
-}
+export class CardHeaderDirective {}
