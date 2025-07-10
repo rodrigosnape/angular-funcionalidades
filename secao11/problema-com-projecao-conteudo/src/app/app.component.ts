@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
+  templateUrl: './ng-template-outlet/ex4.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'problema-com-projecao-conteudo';
+  condition:boolean = true;
 }
