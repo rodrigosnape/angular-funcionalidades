@@ -14,7 +14,7 @@
 
 <hr> -->
 <!-- angular.io/api/common#pipes -->
-<h2>Pipes de TEXTO</h2>
+<!-- <h2>Pipes de TEXTO</h2>
 <p>uppercase: {{ pessoa.nome | uppercase }}</p>
 
 <p>lowercase: {{ pessoa.nome | lowercase }}</p>
@@ -64,7 +64,7 @@
 <p>Completo: {{ minhaData | date : 'full' }}</p>
 
 <p>
-  <!-- angular.io/api/common/DatePipe -->
+  <a href="https://angular.io/api/common/DatePipe">angular.io/api/common/DatePipe</a><br/>
   <b>Hoje é Saturday dia 21 de October de 2023: </b> 
   {{ minhaData | date : "'Hoje é' EEEE 'dia' dd 'de' MMMM 'de' YYYY"}}
 </p>
@@ -88,5 +88,25 @@
   <b>Data: 21/10/2023 Hora: 18:00 PM:</b>
   {{ minhaData | date : "'Data:' dd/MM/YYYY 'Hora' HH:mm a"}}
 </p>
+ -->
+<hr>
+
+<p>Alteração feita no providers (<span style="color:yellow;">DATE_PIPE_DEFAULT_OPTIONS</span>) do <b>app.module</b> para padronizar o date e o fusorário quando não forem especificados</p>
+
+<p>{{ minhaData | date }}</p>
+
+
+<p>Alteração feita no providers (<span style="color:blue;">LOCALE_ID</span>) do <b>app.module</b> para padronizar o locale quando não for especificado/p>
+
+<p>{{ minhaData | date :'full' : undefined : 'pt-BR'}}</p>
+
+<p>{{ minhaData | date :'full' }}</p>
+
+<p>{{ minhaData | date :'full' : undefined : 'en-US'}}</p>
+
+
+
+
+
 
 
