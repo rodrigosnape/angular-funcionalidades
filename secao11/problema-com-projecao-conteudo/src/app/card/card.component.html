@@ -15,7 +15,35 @@
     ====== Sou o Footer Default ======
 </ng-template> -->
 
-<div class="card">
+<!-- <div class="card">
     <ng-container *ngTemplateOutlet="content"></ng-container>
+</div> -->
+<hr>
+
+<!-- <p>EX1</p>
+<div class="card">
+    <ng-container *ngIf="condition; else elseTemplate">
+        <ng-container *ngTemplateOutlet="content"></ng-container>
+    </ng-container>
+
+    <ng-template #elseTemplate>Nenhum conteúdo para ser projetado</ng-template>
+</div> -->
+
+<!-- <p>EX2</p>
+<div class="card">
+     uma diretiva estrutural e outra diretiva de atributo
+    <ng-container *ngIf="condition; else elseTemplate" [ngTemplateOutlet]="content">
+    </ng-container>
+
+    <ng-template #elseTemplate>Nenhum conteúdo para ser projetado</ng-template>
+</div> -->
+
+<p>EX3</p>
+<div class="card">
+    <ng-container *ngTemplateOutlet="condition ? content : null"></ng-container>
 </div>
+
+
+
+
 
