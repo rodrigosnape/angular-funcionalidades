@@ -7,11 +7,15 @@
     </div>
 </div> -->
 
-<ng-container *ngTemplateOutlet="header"></ng-container>
+<!-- <ng-container *ngTemplateOutlet="header"></ng-container>
 <ng-container *ngTemplateOutlet="content"></ng-container>
 <ng-container *ngTemplateOutlet="footer ? footer : defaultFooterTemplate"></ng-container>
 
 <ng-template #defaultFooterTemplate>
     ====== Sou o Footer Default ======
-</ng-template>
+</ng-template> -->
+
+<div class="card">
+    <ng-container *ngTemplateOutlet="content"></ng-container>
+</div>
 
