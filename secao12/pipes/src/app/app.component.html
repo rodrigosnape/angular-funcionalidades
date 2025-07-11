@@ -110,13 +110,39 @@
 <p>minIntegerDigits.minFractionDigits-maxFractionDigits</p>
 <p>Brasil: {{ 1234.5 | number : '6.4-5' : 'pt-BR'}}</p>
 
-<p><span style="color:blue;">LOCALE_ID</span> também afeta o pipe de números</p>
+<p><span style="color:blue;">LOCALE_ID</span> também afeta o pipe de number</p>
 <p>Brasil: {{ 1234.5 | number : undefined : 'pt-BR'}}</p>
 <p>Brasil: {{ 1234.5 | number }}</p>
 <p>EUA: {{ 1234.5 | number : undefined : 'en-US' }}</p>
 
+<hr>
+<p>Pipe currency</p>
+<p><span style="color:blue;">LOCALE_ID</span> também afeta o pipe de currency</p>
+<p>{{ 1200.99 | currency }}</p>
+<p>{{ 1200.99 | currency : 'USD' : 'symbol'}}</p>
+<p>{{ 1200.99 | currency : 'USD' : 'symbol-narrow'}}</p>
+
+<p>{{ 1200.99 | currency : 'BRL'}}</p>
+
+<p><b>code:</b> {{ 1200.99 | currency : 'BRL' : 'code'}}</p>
+<p><b>symbol:</b> {{ 1200.99 | currency : 'BRL' : 'symbol'}}</p>
+<small>o Brasil não tem o symbol-narrow, então ele mostra o symbol</small>
+<p><b>symbol-narrow:</b> {{ 1200.99 | currency : 'BRL' : 'symbol-narrow'}}</p>
+<p><b>TESTE:</b> {{ 1200.99 | currency : 'BRL' : 'TESTE'}}</p>
 
 
+<p><b>'BRL' : true</b> {{ 1200.99 | currency : 'BRL' : true}}</p>
+<p><b>'BRL' : false</b> {{ 1200.99 | currency : 'BRL' : false}}</p>
+
+<p><b>'1.2-2'</b> {{ 1200.99 | currency : 'BRL' : true : '1.2-2'}}</p>
+<p><b>'1.2-2'</b> {{ 1200.9 | currency : 'BRL' : true : '1.2-2'}}</p>
+<small>Ele arredonda</small>
+<p><b>'1.0-0'</b> {{ 1200.9 | currency : 'BRL' : true : '1.0-0'}}</p>
+
+<small>Não precisa mais do BRL por causa do <span style="color:orange;">DATE_PIPE_DEFAULT_OPTIONS</span> do app.module</small>
+<p><b>1200.439</b> {{ 1200.439 | currency}}</p>
+
+<p><b>1200.439</b> {{ 1200.439 | currency : 'USD'}}</p>
 
 
 
