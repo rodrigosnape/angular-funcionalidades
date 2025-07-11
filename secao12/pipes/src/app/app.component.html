@@ -1,4 +1,4 @@
-<p>{{ pessoa.nome }}</p>
+<!-- <p>{{ pessoa.nome }}</p>
 
 <p>{{ pessoa.nome | uppercase }}</p>
 
@@ -12,7 +12,7 @@
 
 <p>Nome do Usuário: {{ pessoa.nome | truncate:2 | uppercase }}</p>
 
-<hr>
+<hr> -->
 <!-- angular.io/api/common#pipes -->
 <h2>Pipes de TEXTO</h2>
 <p>uppercase: {{ pessoa.nome | uppercase }}</p>
@@ -52,4 +52,41 @@
 <p><b>Data convertida para região:</b> {{minhaDataObj | date: 'full'}}</p>
 
 <p><b>Data GMT 0:</b> {{minhaDataObj | date: 'full' : '+0000'}}</p>
+
+<hr>
+
+<p>Curto: {{ minhaData | date : 'short' }}</p>
+
+<p>Médio: {{ minhaData | date : 'medium' }}</p>
+
+<p>Longo: {{ minhaData | date : 'long' }}</p>
+
+<p>Completo: {{ minhaData | date : 'full' }}</p>
+
+<p>
+  <!-- angular.io/api/common/DatePipe -->
+  <b>Hoje é Saturday dia 21 de October de 2023: </b> 
+  {{ minhaData | date : "'Hoje é' EEEE 'dia' dd 'de' MMMM 'de' YYYY"}}
+</p>
+
+<p>
+  <b>Hoje é Saturday dia 21 de October de 2023 às 18:00</b>
+  {{ minhaData | date : "'Hoje é' EEEE 'dia' dd 'de' MMMM 'de' YYYY 'às' HH:mm "}}
+</p>
+
+<p>
+  <b>Hoje é Saturday dia 21 de October de 2023 às 18:00 GMT-03:00</b>
+  {{ minhaData | date : "'Hoje é' EEEE 'dia' dd 'de' MMMM 'de' YYYY 'às' HH:mm zzzz "}}
+</p>
+
+<p>
+  <b>Hoje é Saturday dia 21 de October de 2023 às 21:00 GMT+00:00</b>
+  {{ minhaData | date : "'Hoje é' EEEE 'dia' dd 'de' MMMM 'de' YYYY 'às' HH:mm zzzz " : "+0000"}}
+</p>
+
+<p>
+  <b>Data: 21/10/2023 Hora: 18:00 PM:</b>
+  {{ minhaData | date : "'Data:' dd/MM/YYYY 'Hora' HH:mm a"}}
+</p>
+
 
