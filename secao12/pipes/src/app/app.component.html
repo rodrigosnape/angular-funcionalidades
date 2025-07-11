@@ -6,4 +6,8 @@
 
 <p>{{ pessoa | json | uppercase }}</p>
 <hr>
-<p>Status do Usuároo: {{ pessoa.status | userStatus}}</p>
+<p>Status do Usuário: {{ pessoa.status | userStatus}}</p>
+
+<hr>
+
+<p>Nome do Usuário: {{ pessoa.nome | truncate:2 | uppercase }}</p>
