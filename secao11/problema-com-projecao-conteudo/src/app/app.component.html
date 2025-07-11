@@ -3,7 +3,7 @@
 </app-card> -->
 
 
-<div>
+<!-- <div>
   Div (a div aparecerá no DOM final):
   <app-meu-comp></app-meu-comp>
 </div>
@@ -16,4 +16,26 @@
 <ng-template>
   Template (não é inicializado automaticamente e tb não fará parte do DOM final):
   <app-meu-comp></app-meu-comp>
+</ng-template> -->
+
+<ng-template #headerTemplate>
+  <p>Sou o Header</p>
 </ng-template>
+<ng-template #contentTemplate>
+  <p>Sou o Content</p>
+</ng-template>
+<ng-template #footerTemplate>
+  <p>Sou o Footer</p>
+</ng-template>
+<p>Mandando o footer</p>
+<app-card 
+  [header]="headerTemplate"
+  [content]="contentTemplate"
+  [footer]="footerTemplate"
+  ></app-card>
+<hr>
+<p>Sem mandar o footer</p>
+  <app-card 
+  [header]="headerTemplate"
+  [content]="contentTemplate"
+  ></app-card>
