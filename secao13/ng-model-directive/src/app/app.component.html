@@ -1,0 +1,7 @@
+<p>Separando o input do output</p>
+<input [ngModel]="nome" (ngModelChange)="onChange($event)"/>
+
+<p>Input e output ao mesmo tempo</p>
+<input [(ngModel)]="nome2"/>
+
+<button (click)="show()">Mostrar</button>
