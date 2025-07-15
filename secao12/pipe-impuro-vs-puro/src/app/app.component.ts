@@ -9,7 +9,7 @@ export class AppComponent {
   users = [
     {
       name: 'Felipe',
-      status: 1,
+      status: 3,
     },
     {
       name: 'Laura',
