@@ -2,11 +2,15 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
   name: 'status',
-  pure: true,
+  pure: false,
 })
 export class StatusPipe implements PipeTransform {
+  counter = 0;
   transform(userStatus: number): string {
-    console.log('status pipe');
+    //Pipe impuro compartilha o estado
+    this.counter ++;
+
+    console.log('status pipe',this.counter);
       try {
         if(userStatus === 3){
         throw new Error('Ocorreu um erro.');
