@@ -35,4 +35,16 @@ export class AppComponent {
       status: 1,
     });
   }
+
+  //Pior do que um Pipe impuro
+
+  getUserStatus(userStatus: number): string {
+    console.log('getUserStatus');
+      const status: { [key:string]: string } = {
+        1: 'Ativo',
+        2: 'Inativo',
+      };
+  
+      return status[userStatus];
+    }
 }

@@ -1,6 +1,7 @@
 <div *ngFor="let user of users; let i = index;">
   <p>Nome: {{ user.name }}</p>
-  <p>Status: {{ user.status | status }}</p>
+  <!-- <p>Status: {{ user.status | status }}</p> -->
+  <p>Status: {{ getUserStatus(user.status) }}</p>
 
   <button (click)="inactivateUser(i)">Inativar Usuário</button>
 
