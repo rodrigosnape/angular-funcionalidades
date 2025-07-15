@@ -5,3 +5,15 @@
 <input [(ngModel)]="nome2"/>
 
 <button (click)="show()">Mostrar</button>
+<hr>
+<br>
+<input
+  ngModel
+  #meuImputFormControl="ngModel"
+  minlength="5"
+  required
+/>
+
+<p>Valido: {{ meuImputFormControl.valid }}</p>
+<p>Tocado: {{ meuImputFormControl.touched }}</p>
+<p>Sujo: {{ meuImputFormControl.dirty }}</p>
