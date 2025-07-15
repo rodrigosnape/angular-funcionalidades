@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { IUserResponse } from "../Interfaces/user-response.interface";
 import { Observable, of } from "rxjs";
 import { UsersListResponse } from "../types/users-list-response.type";
+import { IUser } from "../Interfaces/user.interface";
 
 @Injectable({
     providedIn: 'root',
@@ -48,5 +49,18 @@ export class UsersService {
 
     getUserById(userId: number): Observable<IUserResponse>{
         return this._http.get<IUserResponse>(`https://jsonplaceholder.typicode.com/users/${userId}`);
+    }
+
+    getUser(): Promise<IUser>{
+        return new Promise<IUser> ((resolve, reject) => {
+            setTimeout(() => {
+                resolve({
+                    id: 1,
+                    name: "Leanne Graham",
+                    username: "Bret",
+                    email: "Sincere@april.biz",
+                })
+            }, 3000);
+        })
     }
 }

@@ -1,4 +1,24 @@
 <!-- <app-obs-com-objeto></app-obs-com-objeto> -->
 
 
-<app-obs-com-array></app-obs-com-array>
+<!-- <app-obs-com-array></app-obs-com-array> -->
+
+<div *ngIf="(userPromise | async) as user; else loadingTemplate">
+    <p>Id: {{ user.id}}</p>
+    <p>Nome: {{ user.name}}</p>
+    <p>Username: {{ user.username}}</p>
+    <p>Email: {{ user.email}}</p>
+</div>
+
+<ng-template #loadingTemplate>
+    <h1>Carregando...</h1>
+</ng-template>
+
+<hr>
+
+<div *ngIf="(userByIdPromise | async) as userById; else loadingTemplate">
+    <p>Id: {{ userById.id}}</p>
+    <p>Nome: {{ userById.name}}</p>
+    <p>Username: {{ userById.username}}</p>
+    <p>Email: {{ userById.email}}</p>
+</div>
