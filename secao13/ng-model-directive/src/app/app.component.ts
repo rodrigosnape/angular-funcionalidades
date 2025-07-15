@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { NgModel } from '@angular/forms';
 
 @Component({
@@ -10,10 +10,12 @@ export class AppComponent implements AfterViewInit{
   nome: string = 'Rodrigo Veiga';
   nome2: string = 'Rodrigo Veiga';
 
-  @ViewChild('meuInputFormControl') inputEl!: NgModel;
+  @ViewChild('meuInputFormControl') inputElFormControl!: NgModel;
+  @ViewChild('meuInput') inputEl!: ElementRef<HTMLInputElement>;
 
   ngAfterViewInit() {
-    console.log(this.inputEl);
+    console.log('FormControl =>',this.inputElFormControl);
+    console.log('Original =>',this.inputEl);
   }
   onChange(text:string){
     console.warn(text);
@@ -25,7 +27,7 @@ export class AppComponent implements AfterViewInit{
   }
 
   send(){
-    if(this.inputEl.valid && this.inputEl.touched){
+    if(this.inputElFormControl.valid && this.inputElFormControl.touched){
       console.warn('Enviado com sucesso')
     }
   }
