@@ -47,4 +47,15 @@ export class AppComponent {
   
       return status[userStatus];
     }
+//Pior do que um Pipe impuro
+    getUserImage(userStatus: number): string {
+        console.log('getUserImage');
+
+      const statusImages: { [key:number]: string } = {
+        1: 'assets/icons/active-user-icon.png',
+        2: 'assets/icons/inactive-user-icon.png',
+      };
+
+      return statusImages[userStatus];
+    }
 }
