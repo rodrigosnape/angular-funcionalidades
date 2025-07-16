@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, NgModel } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -8,6 +8,7 @@ import { NgForm } from '@angular/forms';
 })
 export class FormComponent implements AfterViewInit{
   @ViewChild('meuForm') form!: NgForm;
+  @ViewChild('meuInput') meuInput!: NgModel;
 
   inputText: string ='texto inicial';
   textarea: string = 'Descrição Inicial'
@@ -17,6 +18,16 @@ export class FormComponent implements AfterViewInit{
 
   ngAfterViewInit() {
     console.log(this.form)
+
+    this.form.valueChanges?.subscribe(
+      (value) => {
+        console.log("Form change", value)
+      }
+    );
+
+    this.meuInput.valueChanges?.subscribe((value:string) => {
+      console.log('input changes', value)
+    })
   }
 
   onSubmit(form: NgForm){
