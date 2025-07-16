@@ -1,4 +1,4 @@
-<form #meuForm="ngForm">
+<!-- <form #meuForm="ngForm">
     <input
         [ngModel]="'Valor que importa'"
         value = 'Serve mais pra nada'
@@ -14,4 +14,37 @@
     <p>Válido: {{ meuForm.valid }}</p>
     <p>Tocado: {{ meuForm.touched }}</p>
     <p>Sujo: {{ meuForm.dirty }}</p>
+</form> -->
+
+<form #meuForm="ngForm" (ngSubmit)="onSubmit(meuForm)">
+    <input name="nome" type="text" [(ngModel)]="inputText"/>
+
+    <br/>
+
+    <textarea name="descricao" [(ngModel)]="textarea"></textarea>
+
+    <br/>
+
+    <select name="pais" [(ngModel)]="select">
+        <option value="1">Brasil</option>
+        <option value="2">Espanha</option>
+    </select>
+
+    <br/>
+
+    <input type="radio" name="groupStatus" id="ativo" value="1" [(ngModel)]="radioButton">
+    <label for="ativo">Ativo</label>
+    
+    <input type="radio" name="groupStatus" id="inativo" value="2" [(ngModel)]="radioButton">
+    <label for="inativo">Inativo</label>
+
+    <br/>
+
+    <input type="checkbox" id="condicao" name="condicao" [(ngModel)]="checkbox">
+    <label for="condicao">Declaração de Termos</label>
+    
+    <br/>
+
+    <button type="submit">Enviar</button>
+    <button type="button" (click)="onReset(meuForm)">Limpar</button>
 </form>
