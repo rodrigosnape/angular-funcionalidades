@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { TextareaComponent } from './elements/textarea/textarea.component';
@@ -17,6 +18,8 @@ import { CustomValidatorFormEx1Component } from './custom-validators/synchronous
 import { InvalidTextValidatorDirective } from './custom-validators/synchronous/ex1/directives/invalid-text-validator.directive';
 import { CustomValidatorFormEx2Component } from './custom-validators/synchronous/ex2/custom-validator-form-ex2/custom-validator-form-ex2.component';
 import { DepartmentQuantityValidatorDirective } from './custom-validators/synchronous/ex2/custom-validator-form-ex2/directives/department-quantity-validator.directive';
+import { UserNameValidatorDirective } from './custom-validators/asynchronous/directives/user-name-validator.directive';
+import { AsyncCustomValidatorFormComponent } from './custom-validators/asynchronous/async-custom-validator-form/async-custom-validator-form.component';
 
 @NgModule({
   declarations: [
@@ -34,11 +37,14 @@ import { DepartmentQuantityValidatorDirective } from './custom-validators/synchr
     CustomValidatorFormEx1Component,
     InvalidTextValidatorDirective,
     CustomValidatorFormEx2Component,
-    DepartmentQuantityValidatorDirective
+    DepartmentQuantityValidatorDirective,
+    UserNameValidatorDirective,
+    AsyncCustomValidatorFormComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

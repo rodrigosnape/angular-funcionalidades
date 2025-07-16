@@ -1,0 +1,20 @@
+<form #form="ngForm">
+    <input 
+        type="text"
+        name="nome"
+        ngModel
+        #nomeinputControl="ngModel"
+        placeholder="Digite o nome"   
+    />
+
+    <div>
+        <p>Verificando...</p>
+        <p style="color:green;">Usuário existente</p>
+        <p style="color:red;">Usuário inexistente</p>
+    </div>
+
+    <p>Valido: {{ nomeinputControl.valid }}</p>
+    <p>Tocado: {{ nomeinputControl.touched }}</p>
+    <p>Sujo: {{ nomeinputControl.dirty }}</p>
+    <p>Pendente: {{ nomeinputControl.pending }}</p>
+</form>
