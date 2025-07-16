@@ -15,9 +15,9 @@
     <p>Tocado: {{ meuForm.touched }}</p>
     <p>Sujo: {{ meuForm.dirty }}</p>
 </form> -->
-
-<form #meuForm="ngForm" (ngSubmit)="onSubmit(meuForm)">
-    <input name="nome" type="text" [(ngModel)]="inputText"/>
+<small>change (default), blur, submit</small>
+<form #meuForm="ngForm" (ngSubmit)="onSubmit(meuForm)" [ngFormOptions]="{ updateOn: 'change'}">
+    <input name="nome" type="text" [(ngModel)]="inputText" [ngModelOptions]="{ updateOn: 'change' }" required/>
 
     <br/>
 

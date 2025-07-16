@@ -27,6 +27,9 @@ export class FormComponent implements AfterViewInit{
   }
 
   onReset(form: NgForm){
+     console.log('onReset())',this.inputText);
+     return;
+
     form.reset();
      console.log('onReset())',form.value);
      
