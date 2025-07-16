@@ -4,13 +4,25 @@
         name="nome"
         ngModel
         #nomeinputControl="ngModel"
-        placeholder="Digite o nome"   
+        [ngModelOptions]="{updateOn: 'blur'}"
+        placeholder="Digite o nome"
+        appUserNameValidator
     />
 
-    <div>
-        <p>Verificando...</p>
-        <p style="color:green;">Usuário existente</p>
-        <p style="color:red;">Usuário inexistente</p>
+    <div *ngIf="nomeinputControl.dirty">
+        <p *ngIf="nomeinputControl.pending" style="color:orange;">Verificando...</p>
+        
+        <p 
+            *ngIf="!nomeinputControl.pending && nomeinputControl.valid && !nomeinputControl.hasError('invalidUserName')" 
+            style="color:green;">
+            Usuário existente
+        </p>
+        
+        <p 
+            *ngIf="!nomeinputControl.pending && nomeinputControl.invalid && nomeinputControl.hasError('invalidUserName')"
+            style="color:red;">
+            Usuário inexistente
+        </p>
     </div>
 
     <p>Valido: {{ nomeinputControl.valid }}</p>

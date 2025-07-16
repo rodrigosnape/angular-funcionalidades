@@ -11,6 +11,6 @@ export class UsersService {
 
   //Array de objetos com a proprietade name do tipo string
   getUsers():Observable<{ name:string }[]>{
-    return this._httpClient.get<{ name:string }[]>('https://jsonplaceholder.typicode.users')
+    return this._httpClient.get<{ name:string }[]>('https://jsonplaceholder.typicode.com/users')
   }
 }
