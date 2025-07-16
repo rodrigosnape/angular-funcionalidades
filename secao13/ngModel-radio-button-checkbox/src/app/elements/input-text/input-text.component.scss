@@ -1,0 +1,15 @@
+// .valid {
+//     border-color: green;
+// }
+
+// .invalid {
+//     border-color: red;
+// }
+
+.ng-valid.ng-touched:not(form) {
+    border-color: green;
+}
+
+.ng-invalid.ng-touched:not(form) {
+    border-color: red;
+}
