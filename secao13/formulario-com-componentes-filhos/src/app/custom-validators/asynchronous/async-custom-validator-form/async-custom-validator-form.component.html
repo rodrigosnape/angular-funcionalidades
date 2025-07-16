@@ -3,30 +3,31 @@
         type="text"
         name="nome"
         ngModel
-        #nomeinputControl="ngModel"
-        [ngModelOptions]="{updateOn: 'blur'}"
+        #nomeInputControl="ngModel"
+        [ngModelOptions]="{ updateOn: 'blur' }"
         placeholder="Digite o nome"
         appUserNameValidator
-    />
+     />
 
-    <div *ngIf="nomeinputControl.dirty">
-        <p *ngIf="nomeinputControl.pending" style="color:orange;">Verificando...</p>
+    <div *ngIf="nomeInputControl.dirty">
+        <p *ngIf="nomeInputControl.pending" style="color: orange;">Verificando...</p>
         
         <p 
-            *ngIf="!nomeinputControl.pending && nomeinputControl.valid && !nomeinputControl.hasError('invalidUserName')" 
-            style="color:green;">
-            Usuário existente
+            style="color: green;" 
+            *ngIf="!nomeInputControl.pending && nomeInputControl.valid && !nomeInputControl.hasError('invalidUserName')">
+            
+            Usuário existente.
         </p>
         
         <p 
-            *ngIf="!nomeinputControl.pending && nomeinputControl.invalid && nomeinputControl.hasError('invalidUserName')"
-            style="color:red;">
-            Usuário inexistente
+            style="color: red;"
+            *ngIf="!nomeInputControl.pending && nomeInputControl.invalid && nomeInputControl.hasError('invalidUserName')">
+            Usuário inexistente.
         </p>
     </div>
 
-    <p>Valido: {{ nomeinputControl.valid }}</p>
-    <p>Tocado: {{ nomeinputControl.touched }}</p>
-    <p>Sujo: {{ nomeinputControl.dirty }}</p>
-    <p>Pendente: {{ nomeinputControl.pending }}</p>
+    <p>Válido: {{ nomeInputControl.valid }}</p>
+    <p>Touched: {{ nomeInputControl.touched }}</p>
+    <p>Sujo: {{ nomeInputControl.dirty }}</p>
+    <p>Pendente: {{ nomeInputControl.pending }}</p>
 </form>
