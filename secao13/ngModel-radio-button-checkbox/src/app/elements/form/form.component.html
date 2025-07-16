@@ -1,0 +1,17 @@
+<form #meuForm="ngForm">
+    <input
+        [ngModel]="'Valor que importa'"
+        value = 'Serve mais pra nada'
+        name="nome"
+        required
+    />
+    <input
+        [ngModel]="'9'"
+        value = 'Serve mais pra nada'
+        name="idade"
+        required
+    />
+    <p>Válido: {{ meuForm.valid }}</p>
+    <p>Tocado: {{ meuForm.touched }}</p>
+    <p>Sujo: {{ meuForm.dirty }}</p>
+</form>
