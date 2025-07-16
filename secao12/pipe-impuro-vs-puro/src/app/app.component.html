@@ -1,0 +1,14 @@
+<div *ngFor="let user of users; let i = index;">
+  <p>Nome: {{ user.name }}</p>
+  <p>Status: {{ user.status | status }}</p>
+  <!-- <p>Status: {{ getUserStatus(user.status) }}</p>
+ -->
+  <img [src]="user.status | userStatusImage" width="40">
+  <!-- <img [src]="getUserImage(user.status)" width="40"> -->
+
+  <button (click)="inactivateUser(i)">Inativar Usuário</button>
+
+  <hr />
+</div>
+
+<button (click)="addUser()">Adicionar</button>

@@ -3,20 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ObsComObjetoComponent } from './components/obs-com-objeto/obs-com-objeto.component';
-import { HttpClientModule } from '@angular/common/http';
-import { ObsComArrayComponent } from './components/obs-com-array/obs-com-array.component';
+import { FormsModule } from '@angular/forms';
+import { TextareaComponent } from './elements/textarea/textarea.component';
+import { InputTextComponent } from './elements/input-text/input-text.component';
+import { SelectComponent } from './elements/select/select.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ObsComObjetoComponent,
-    ObsComArrayComponent
+    TextareaComponent,
+    InputTextComponent ,
+    SelectComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

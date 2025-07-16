@@ -1,0 +1,51 @@
+<p>Separando o input do output</p>
+<input [ngModel]="nome" (ngModelChange)="onChange($event)"/>
+
+<p>Input e output ao mesmo tempo</p>
+<input [(ngModel)]="nome2"/>
+
+<button (click)="show()">Mostrar</button>
+<hr>
+<br>
+Nome:
+<!-- <input
+  ngModel
+  #meuInput
+  #meuInputFormControl="ngModel"
+  [ngClass]="{
+    'valid': meuInputFormControl.valid && meuInputFormControl.touched,
+    'invalid': meuInputFormControl.invalid && meuInputFormControl.touched
+  }"
+  minlength="5"
+  required
+/> -->
+<input
+  ngModel
+  #meuInput
+  #meuInputFormControl="ngModel"
+  minlength="5"
+  required
+/>
+
+<!-- <div style="color: rgb(255, 255, 255);" *ngIf="meuInputFormControl.invalid && meuInputFormControl.touched">
+  <div *ngIf="meuInputFormControl.hasError('required')">
+    <p>O campo Nome é obrigatório.</p>
+  </div>
+   <div *ngIf="meuInputFormControl.hasError('minlength')">
+    <p>O campo Nome deve ter pelo menos 5 caracteres.</p>
+  </div>
+</div>
+
+<p>Valido: {{ meuInputFormControl.valid }}</p>
+<p>Tocado: {{ meuInputFormControl.touched }}</p>
+<p>Sujo: {{ meuInputFormControl.dirty }}</p>
+
+<br>
+
+<button (click)="send()">Enviar</button> -->
+
+<!-- <app-input-text></app-input-text> -->
+<!-- <hr>
+<app-textarea></app-textarea> -->
+<hr>
+<app-select></app-select>
