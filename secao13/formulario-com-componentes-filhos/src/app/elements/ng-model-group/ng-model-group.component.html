@@ -1,0 +1,25 @@
+<form #meuForm="ngForm" (ngSubmit)="onSubmit(meuForm)">
+    <ng-container ngModelGroup="grupoUsuario" #grupoUsuario="ngModelGroup">
+        <h2>Dados do Usuário:</h2>
+        <input name="nome" ngModel placeholder="Nome" required />
+        <input name="idade" ngModel placeholder="Idade" required />
+
+        <p><b>Estado do Usuário:</b></p>
+        <p>Válido: {{ grupoUsuario.valid }}</p>
+        <p>Tocado: {{ grupoUsuario.touched }}</p>
+        <p>Sujo: {{ grupoUsuario.dirty }}</p>
+    </ng-container>
+
+    <ng-container ngModelGroup="grupoProfissao" #grupoProfissao="ngModelGroup">
+        <h2>Dados da Profissão:</h2>
+        <input name="cargo" ngModel placeholder="Cargo" required />
+        <input name="setor" ngModel placeholder="Setor" required />
+
+        <p><b>Estado da Profissão:</b></p>
+        <p>Válido: {{ grupoProfissao.valid }}</p>
+        <p>Tocado: {{ grupoProfissao.touched }}</p>
+        <p>Sujo: {{ grupoProfissao.dirty }}</p>
+    </ng-container>
+
+    <button [disabled]="meuForm.invalid">Enviar</button>
+</form>
