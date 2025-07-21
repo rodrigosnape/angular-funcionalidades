@@ -15,12 +15,15 @@
                         type="text" 
                         name="usuario" 
                         matInput 
-                        [(ngModel)]="userSelected.username" 
+                        [(ngModel)]="userSelected.username"
+                        [ngModelOptions]="{ updateOn: 'blur'}"
                         #usernameControl="ngModel"
+                        [appCredentialsValidator]="'username'"
                         required
                     />
                     <mat-hint>O <b>Usuário</b> será utilizado para o login</mat-hint>
                     <mat-error *ngIf="usernameControl.hasError('required')">O <b>Usuário</b> é obrigatório.</mat-error>
+                    <mat-error *ngIf="usernameControl.hasError('invalidUsername') && !usernameControl.hasError('required')">Este <b>Usuário</b> já está sendo utilizado.</mat-error>
                 </mat-form-field>
                  <mat-form-field class="user-form__item user-form__item-50">
                     <mat-label>Email:</mat-label>
@@ -28,13 +31,16 @@
                         type="text" 
                         name="email" 
                         matInput 
-                        [(ngModel)]="userSelected.email" 
+                        [(ngModel)]="userSelected.email"
+                        [ngModelOptions]="{ updateOn: 'blur'}"
                         #emailControl="ngModel"
+                        [appCredentialsValidator]="'email'"
                         appEmailPatternValidator
                         required
                     />
                     <mat-error *ngIf="emailControl.hasError('required')">O <b>Email</b> é obrigatório.</mat-error>
                     <mat-error *ngIf="emailControl.hasError('invalidEmailPattern') && !emailControl.hasError('required')">O <b>Email</b> é invalido.</mat-error>
+                    <mat-error *ngIf="emailControl.hasError('invalidEmail') && !emailControl.hasError('required')">Este <b>Email</b> já está sendo utilizado.</mat-error>
                 </mat-form-field>
             </div>
         </form>
