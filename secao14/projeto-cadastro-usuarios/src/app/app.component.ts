@@ -43,21 +43,21 @@ export class AppComponent implements OnInit {
   private getUsers() {
     this._usersService.getUsers().subscribe((usersListResponse) => {
       this.usersList = usersListResponse;
-      console.log(this.usersList);
+      //console.log(this.usersList);
     });
   }
 
   private getGenres() {
     this._genresService.getGenres().subscribe((genresListResponse) => {
       this.genresList = genresListResponse;
-      console.log(this.genresList);
+      //console.log(this.genresList);
     });
   }
 
   private getStates() {
     this._brazilianStatesService.getStates().subscribe((statesListResponse) => {
       this.statesList = statesListResponse;
-      console.log(this.statesList);
+      //console.log(this.statesList);
     });
   }
 }

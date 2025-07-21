@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { Observable, of } from "rxjs";
 import { GenresListResponse } from "../types/genres-list-response";
 
 @Injectable({
@@ -36,5 +36,7 @@ export class GenresService{
                 observer.complete();
             }, 1000)
         })
+
+        //return of((this.genresList));
     }
 }
