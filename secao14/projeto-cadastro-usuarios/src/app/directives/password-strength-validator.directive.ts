@@ -22,7 +22,7 @@ export class PasswordStrengthValidatorDirective implements Validator {
     const result = zxcvbn(control.value);
 
     const PASSWORD_IS_WEAK_OR_MEDIUM = result.score !== 4;
-    console.log('força da senha:', result.score);
+    //console.log('força da senha:', result.score);
     if(PASSWORD_IS_WEAK_OR_MEDIUM){
       return {'invalidPasswordStrength': true}
     }
