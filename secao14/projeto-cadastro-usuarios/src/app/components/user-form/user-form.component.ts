@@ -25,7 +25,7 @@ export class UserFormComponent implements OnInit, OnChanges{
 
   ngOnChanges(changes: SimpleChanges) {
      //console.log('ngOnChanges');
-     console.log('changes', changes);
+     //console.log('changes', changes);
      const USER_CHANGED = changes['userSelected'];
      if(USER_CHANGED){
       this.onPasswordChange(this.userSelected.password);      
