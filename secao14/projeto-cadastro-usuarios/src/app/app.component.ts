@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   constructor(
     private readonly _usersService: UsersService,
     private readonly _genresService: GenresService,
-    private readonly _brazilianStatesService: BrazilianStatesService
+    private readonly _brazilianStatesService: BrazilianStatesService,
   ){}
 
   ngOnInit() {
