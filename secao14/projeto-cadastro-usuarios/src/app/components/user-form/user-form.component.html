@@ -14,15 +14,28 @@
                     <input 
                         type="text" 
                         name="usuario" 
-                        matInput [(ngModel)]="userSelected.username" 
+                        matInput 
+                        [(ngModel)]="userSelected.username" 
                         #usernameControl="ngModel"
-                        required>
+                        required
+                    />
                     <mat-hint>O <b>Usuário</b> será utilizado para o login</mat-hint>
                     <mat-error *ngIf="usernameControl.hasError('required')">O <b>Usuário</b> é obrigatório.</mat-error>
                 </mat-form-field>
-                <div class="user-form__item user-form__item-50">
-                     <input type="text" style="width:100%;">
-                </div>
+                 <mat-form-field class="user-form__item user-form__item-50">
+                    <mat-label>Email:</mat-label>
+                    <input 
+                        type="text" 
+                        name="email" 
+                        matInput 
+                        [(ngModel)]="userSelected.email" 
+                        #emailControl="ngModel"
+                        appEmailPatternValidator
+                        required
+                    />
+                    <mat-error *ngIf="emailControl.hasError('required')">O <b>Email</b> é obrigatório.</mat-error>
+                    <mat-error *ngIf="emailControl.hasError('invalidEmailPattern') && !emailControl.hasError('required')">O <b>Email</b> é invalido.</mat-error>
+                </mat-form-field>
             </div>
         </form>
     </mat-card-content>
