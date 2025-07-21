@@ -40,6 +40,10 @@ export class AppComponent implements OnInit {
       this.userSelected = structuredClone(userFound);
     }
   }
+
+  showRealUser(){
+    console.log(this.usersList);
+  }
   private getUsers() {
     this._usersService.getUsers().subscribe((usersListResponse) => {
       this.usersList = usersListResponse;
