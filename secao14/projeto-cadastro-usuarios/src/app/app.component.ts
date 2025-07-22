@@ -52,21 +52,40 @@ export class AppComponent implements OnInit {
   onFormSubmit() {
     if(this.userSelectedIndex === undefined) return;
     const originalUser = this.usersList[this.userSelectedIndex];
-    this.openBeforeAndAfterDialog(originalUser, this.userSelected);
+    this.openBeforeAndAfterDialog(originalUser, this.userSelected, this.userSelectedIndex );
   }
 
-  openBeforeAndAfterDialog(originalUser: IUser, updatedUser:IUser) {
+  openBeforeAndAfterDialog(originalUser: IUser, updatedUser:IUser, userSelectedIndex: number) {
     /*ou, como eles têm o mesmo nome, poderia passar data:{
       originalUser,
       updatedUser
     }*/
-    this._matDialog.open(UserBeforeAndAfterDialogComponent, {
+    const dialogRef = this._matDialog.open(UserBeforeAndAfterDialogComponent, {
       data: {
         originalUser: originalUser,
         updatedUser: updatedUser
       },
       minWidth: '70%',
     });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log('result',result);
+      if(result){
+         this.confirmUserUpdate(updatedUser, userSelectedIndex);
+      }
+    });
+  }
+
+  confirmUserUpdate(updatedUser: IUser, userSelectedIndex: number) {
+    console.log('confirmUserUpdate');
+    //passa o clone para nao passar a mesma referência...
+    this.usersList[userSelectedIndex] = structuredClone(updatedUser);
+
+    console.group('Alteração finalizada - Lista de usuário atualizada: ');
+
+    console.log('Lista de usuários atual', this.usersList);
+
+    console.groupEnd();
   }
 
   private getUsers() {
