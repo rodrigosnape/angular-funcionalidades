@@ -3,6 +3,7 @@ import { GenresListResponse } from '../../types/genres-list-response';
 import { StatesListResponse } from '../../types/states-list-response';
 import { IUser } from '../../interfaces/user/user.interface';
 import { getPasswordStrengthValue } from '../../utils/get-password-strength-value';
+import { convertPtBrDateToDateObj } from '../../utils/convert-pt-br-date-to-date-obj';
 
 @Component({
   selector: 'app-user-form',
@@ -12,6 +13,7 @@ import { getPasswordStrengthValue } from '../../utils/get-password-strength-valu
 export class UserFormComponent implements OnInit, OnChanges{
   passwordStrengthValue = 0;
 
+  dateValue: Date | null = null;
   minDate: Date | null = null;
   maxDate: Date | null = null;
 
@@ -28,7 +30,8 @@ export class UserFormComponent implements OnInit, OnChanges{
      //console.log('changes', changes);
      const USER_CHANGED = changes['userSelected'];
      if(USER_CHANGED){
-      this.onPasswordChange(this.userSelected.password);      
+      this.onPasswordChange(this.userSelected.password);    
+      this.setBirthDateToDatepicker(this.userSelected.birthDate);  
      }
 
   }
@@ -40,6 +43,10 @@ export class UserFormComponent implements OnInit, OnChanges{
   private setMinAndMaxDate(){
     this.minDate = new Date(new Date().getFullYear() - 100, 0, 1);
     this.maxDate = new Date();
+  }
+
+  private setBirthDateToDatepicker(birthDate: string){
+    this.dateValue = convertPtBrDateToDateObj(birthDate);
   }
 
   
