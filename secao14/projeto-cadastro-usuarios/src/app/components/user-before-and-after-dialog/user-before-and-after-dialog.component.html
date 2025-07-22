@@ -26,8 +26,8 @@
             <div class="infos__item"><b>Data de Nascimento:</b> {{ data.updatedUser.birthDate }} </div>
         </div>
         <div class="infos__row">
-            <div class="infos__item"><b>Estado:</b> {{ data.originalUser.state }}</div>
-            <div class="infos__item"><b>Estado:</b> {{ data.updatedUser.state }} </div>
+            <div class="infos__item"><b>Estado:</b> {{ data.originalUser.state | stateDescription}}</div>
+            <div class="infos__item"><b>Estado:</b> {{ data.updatedUser.state | stateDescription}} </div>
         </div>
         <ng-container *ngFor="let music of data.originalUser.musics; let i = index">
             <div class="infos__row">
@@ -39,12 +39,12 @@
                 <div class="infos__item"><b>Música {{ i + 1 }} - Banda:</b> {{ data.updatedUser.musics[i].band }} </div>
             </div>
             <div class="infos__row">
-                <div class="infos__item"><b>Música {{ i + 1 }} - Gênero:</b> {{ music.genre }}</div>
-                <div class="infos__item"><b>Música {{ i + 1 }} - Gênero:</b> {{ data.updatedUser.musics[i].genre }} </div>
+                <div class="infos__item"><b>Música {{ i + 1 }} - Gênero:</b> {{ music.genre | genreDescription }}</div>
+                <div class="infos__item"><b>Música {{ i + 1 }} - Gênero:</b> {{ data.updatedUser.musics[i].genre | genreDescription}} </div>
             </div>
             <div class="infos__row">
-                <div class="infos__item"><b>Música {{ i + 1 }} - Favorita:</b> {{ music.isFavorite }}</div>
-                <div class="infos__item"><b>Música {{ i + 1 }} - Favorita:</b> {{ data.updatedUser.musics[i].isFavorite }} </div>
+                <div class="infos__item"><b>Música {{ i + 1 }} - Favorita:</b> {{ music.isFavorite | isFavoriteDescription}}</div>
+                <div class="infos__item"><b>Música {{ i + 1 }} - Favorita:</b> {{ data.updatedUser.musics[i].isFavorite | isFavoriteDescription }} </div>
             </div>
         </ng-container>
     </div>

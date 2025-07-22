@@ -39,4 +39,10 @@ export class GenresService{
 
         //return of((this.genresList));
     }
+
+    getGenreDescription(genreId:number):string {
+        const genreDescription = this.genresList.find(genre => genre.id === genreId)?.description;
+
+        return genreDescription ? genreDescription : '';
+    }
 }
