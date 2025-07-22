@@ -136,7 +136,7 @@
                             <td mat-cell *matCellDef="let element; let i = index">
                                <mat-form-field>
                                     <mat-label>Título</mat-label>
-                                    <input type="text" [name]="'titulo-' + i" matInput [(ngModel)]="element.title" required/>
+                                    <input type="text" [name]="'banda-' + i" matInput [(ngModel)]="element.band" required/>
                                     <mat-error>O <b>Título</b> é obrigatório.</mat-error>
                                 </mat-form-field>
                             </td>
