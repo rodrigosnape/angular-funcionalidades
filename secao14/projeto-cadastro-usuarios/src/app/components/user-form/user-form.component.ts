@@ -20,6 +20,8 @@ export class UserFormComponent implements OnInit, OnChanges{
   minDate: Date | null = null;
   maxDate: Date | null = null;
 
+  filteredGenresList: GenresListResponse = [];
+
   displayedColumns: string[] = ['title', 'band', 'genre', 'favorite'];
 
   @Input() genresList: GenresListResponse = [];
@@ -36,7 +38,9 @@ export class UserFormComponent implements OnInit, OnChanges{
      const USER_CHANGED = changes['userSelected'];
      if(USER_CHANGED){
       this.onPasswordChange(this.userSelected.password);    
-      this.setBirthDateToDatepicker(this.userSelected.birthDate);  
+      this.setBirthDateToDatepicker(this.userSelected.birthDate);
+        
+      this.filteredGenresList = this.genresList;
      }
 
   }
@@ -52,6 +56,21 @@ export class UserFormComponent implements OnInit, OnChanges{
     this.userSelected.birthDate = convertDateObjToPtBrDate(event.value);
 
     console.log('this.userSelected',this.userSelected);
+  }
+
+  displayFn(genreId: number){
+
+    const genreFound = this.genresList.find(genre => genre.id === genreId);
+
+    return genreFound ? genreFound.description : '';
+  }
+
+  filterGenres(text:string){
+    console.log(text);
+    if(typeof text === 'number') return;
+    const searchTerm = text.toLocaleLowerCase();
+
+    this.filteredGenresList = this.genresList.filter(genre => genre.description.toLowerCase().includes(searchTerm));
   }
 
   private setMinAndMaxDate(){
