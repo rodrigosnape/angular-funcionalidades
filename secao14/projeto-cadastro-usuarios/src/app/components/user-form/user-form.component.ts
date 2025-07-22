@@ -39,7 +39,7 @@ export class UserFormComponent implements OnInit, OnChanges{
      if(USER_CHANGED){
       this.onPasswordChange(this.userSelected.password);    
       this.setBirthDateToDatepicker(this.userSelected.birthDate);
-        
+
       this.filteredGenresList = this.genresList;
      }
 
@@ -71,6 +71,10 @@ export class UserFormComponent implements OnInit, OnChanges{
     const searchTerm = text.toLocaleLowerCase();
 
     this.filteredGenresList = this.genresList.filter(genre => genre.description.toLowerCase().includes(searchTerm));
+  }
+
+  isAnyCheckboxChecked(): boolean {
+    return this.userSelected.musics.some(music => music.isFavorite );
   }
 
   private setMinAndMaxDate(){
