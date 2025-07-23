@@ -1,4 +1,4 @@
-<form [formGroup]="pessoaForm">
+<form [formGroup]="pessoaForm" (ngSubmit)="onFormSubmit()">
   <label for="name">Nome: </label>
   <input type="text" id="name" formControlName="nome"/> <br/>
   <small *ngIf="nome?.hasError('required')" style="color:red;">O Nome é obrigatório</small>

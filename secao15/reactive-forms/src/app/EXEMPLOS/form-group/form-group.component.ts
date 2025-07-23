@@ -7,6 +7,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrl: './form-group.component.scss'
 })
 export class FormGroupComponent {
+
   pessoaForm = new FormGroup({
     nome: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required]),
@@ -42,5 +43,10 @@ export class FormGroupComponent {
   mostrarValue(){
     console.log(this.pessoaForm.value);
     console.log(this.nome);
+  }
+
+  onFormSubmit() {
+    console.log('onFormSubmit');
+    console.log(this.pessoaForm.value);
   }
 }
