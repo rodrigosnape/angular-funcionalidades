@@ -22,6 +22,9 @@ export class FormGroupComponent {
     console.log(this.pessoaForm);
 
     console.log(this.pessoaForm.get('nome')?.valid);
+
+
+    this.pessoaForm.valueChanges.subscribe((value) => console.log(value));
   }
 
   get nome(): FormControl{
@@ -48,5 +51,18 @@ export class FormGroupComponent {
   onFormSubmit() {
     console.log('onFormSubmit');
     console.log(this.pessoaForm.value);
+  }
+
+  alteracaoTotal() {
+    console.log('alteracaoTotal');
+    //Sempre que for executado o setValue ele dispara o valueChanges (linha 27)
+    this.pessoaForm.setValue({
+      nome: 'Rodrigo Veiga',
+      email: 'rodrigo@veiga.com',
+      endereco: {
+        rua: "Rua Nova",
+        numero: "000"
+      }
+    });
   }
 }
