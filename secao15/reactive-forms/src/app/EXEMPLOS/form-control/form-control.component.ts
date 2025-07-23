@@ -28,7 +28,7 @@ export class FormControlComponent implements OnInit{
   }
 
   alterarValor(){
-    this.nome.setValue("Renato");
+    this.nome.setValue("Re");
   }
 
   inputAlterado(){
@@ -46,5 +46,19 @@ export class FormControlComponent implements OnInit{
   resetar(){
       this.nome.reset();
      //this.nome.reset('Passando um valor durante o reset');
+  }
+
+  setValidators(){
+    this.nome.setValidators([]);
+    this.nome.setValue('Opa!');
+    //Sobrescreve TODOS os validadores existentes e troca pelo que está sendo setado agora
+    this.nome.setValidators(Validators.minLength(6));
+    this.nome.updateValueAndValidity();
+  }
+
+  addValidators(){
+    //Adiciona aos validadores que já existem
+    this.nome.addValidators(Validators.maxLength(7));
+    this.nome.updateValueAndValidity();
   }
 }

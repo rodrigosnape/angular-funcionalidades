@@ -4,6 +4,7 @@
 <div style="color:red;">
     <span *ngIf="nome.hasError('required')">O campo <b>Nome</b> é obrigatório.</span>
     <span *ngIf="nome.hasError('minlength') && !nome.hasError('required')">É necessário no mínimo 6 caracteres.</span>
+    <span *ngIf="nome.hasError('maxlength') && !nome.hasError('required')">É necessário no MÁXIMO 7 caracteres.</span>
 </div>
 
 <p>Valor: {{ nome.value }}</p>
@@ -18,3 +19,7 @@
 <button (click)="habilitar()">Habilitar</button> <br/>
 
 <button (click)="resetar()">Resetar</button> <br/>
+
+<button (click)="setValidators()">Set Validators</button>
+
+<button (click)="addValidators()">Add Validators</button> <br/>
