@@ -7,7 +7,6 @@ import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrl: './form-array.component.scss'
 })
 export class FormArrayComponent {
-
   musicasForm = new FormGroup({
     musicas: new FormArray([
       new FormControl('', [Validators.required])
@@ -23,7 +22,11 @@ export class FormArrayComponent {
   }
 
   adicionarMusica() {
-  
+    this.musicas.push(new FormControl('Novo', [Validators.required]));
+  }
+
+  removerMusica(musicaIndex:number) {
+    this.musicas.removeAt(musicaIndex);
   }
 
 }
