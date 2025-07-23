@@ -9,10 +9,23 @@
   <input type="text" id="email" formControlName="email"/> <br/>
    <small *ngIf="email?.hasError('required')" style="color:red;">O Email é obrigatório</small>
 
+   <div formGroupName="endereco">
+        <label for="street">Rua: </label>
+        <input type="text" id="street" formControlName="rua"/> <br/>
+         <small *ngIf="rua?.hasError('required')" style="color:red;">A Rua é obrigatória</small>
+
+         <br/>
+
+        <label for="number">Número: </label>
+        <input type="text" id="number" formControlName="numero"/> <br/>
+         <small *ngIf="numero?.hasError('required')" style="color:red;">O Número é obrigatório</small>
+   </div>
+
 
   <br />
 
   <button type="submit" [disabled]="!pessoaForm.valid" (click)="mostrarValue()">Enviar</button>
 
   <p>Formulário válido: {{ pessoaForm.valid }}</p>
+  <p>Formulário Endereço: {{ pessoaForm.get('endereco')?.valid }}</p>
 </form>

@@ -10,6 +10,10 @@ export class FormGroupComponent {
   pessoaForm = new FormGroup({
     nome: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required]),
+    endereco: new FormGroup({
+      rua: new FormControl('', [Validators.required]),
+      numero: new FormControl('', [Validators.required]),
+    })
 
   });
 
@@ -22,9 +26,17 @@ export class FormGroupComponent {
   get nome(): FormControl{
     return this.pessoaForm.get('nome') as FormControl;
   }
-  
+
   get email(): FormControl{
     return this.pessoaForm.get('email') as FormControl;
+  }
+
+  get rua(): FormControl{
+    return this.pessoaForm.get('endereco')?.get('rua') as FormControl;
+  }
+
+  get numero(): FormControl{
+    return this.pessoaForm.get('endereco')?.get('numero') as FormControl;
   }
 
   mostrarValue(){
