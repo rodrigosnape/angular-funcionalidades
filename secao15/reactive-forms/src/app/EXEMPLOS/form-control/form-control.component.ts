@@ -8,12 +8,16 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class FormControlComponent implements OnInit{
 
-  nome = new FormControl('Inicial', [
+/*   nome = new FormControl('Inicial', [
     Validators.required,
     Validators.minLength(6)
-  ]);
+  ]); */
   //nonNullable não deixa o valor inicial ser resetado. Ele, quando for resetado, volta para o valor inicial
-  //nome = new FormControl('Inicial', { nonNullable: true, validators: [Validators.required], updateOn: 'blur' });
+  nome = new FormControl('Inicial', { 
+    nonNullable: true, 
+    validators: [Validators.required, Validators.minLength(6), Validators.maxLength(7)], 
+    updateOn: 'blur' 
+  });
 
   ngOnInit() {
     console.log(this.nome);
