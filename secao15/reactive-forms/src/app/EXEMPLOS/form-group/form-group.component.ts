@@ -14,8 +14,9 @@ export class FormGroupComponent {
     endereco: new FormGroup({
       rua: new FormControl('', [Validators.required]),
       numero: new FormControl('', [Validators.required]),
-    })
-
+    }),
+  } , {
+    updateOn: 'blur'
   });
 
   constructor(){
@@ -24,7 +25,7 @@ export class FormGroupComponent {
     console.log(this.pessoaForm.get('nome')?.valid);
 
 
-    this.pessoaForm.valueChanges.subscribe((value) => console.log(value));
+    this.pessoaForm.valueChanges.subscribe((value) => console.log('valueChanges => Pessoa Form', value));
   }
 
   get nome(): FormControl{
