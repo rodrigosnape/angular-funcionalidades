@@ -17,4 +17,12 @@ export class FormControlComponent implements OnInit{
   mostrarStatus(){
     console.log(this.nome);
   }
+
+  alterarValor(){
+    this.nome.setValue("Renato");
+  }
+
+  inputAlterado(){
+    console.log(this.nome.value);
+  }
 }
