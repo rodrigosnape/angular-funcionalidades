@@ -65,4 +65,16 @@ export class FormGroupComponent {
       }
     });
   }
+
+  alteracaoParcial(){
+    console.log('alteracaoParcial');
+    //Sempre que for executado o patchValue ele TAMBÉM dispara o valueChanges (linha 27)
+    this.pessoaForm.patchValue({
+      nome: 'Renato Alves',
+      endereco: {
+        rua: "Verde"
+      }
+    })
+  }
+
 }

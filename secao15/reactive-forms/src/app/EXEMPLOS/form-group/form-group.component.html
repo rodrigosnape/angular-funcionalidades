@@ -26,6 +26,7 @@
 
   <button type="submit" [disabled]="!pessoaForm.valid" (click)="mostrarValue()">Enviar</button>
   <button type="button"  (click)="alteracaoTotal()">Alteração Total</button>
+  <button type="button"  (click)="alteracaoParcial()">Alteração Parcial</button>
 
   <p>Formulário válido: {{ pessoaForm.valid }}</p>
   <p>Formulário Endereço: {{ pessoaForm.get('endereco')?.valid }}</p>
