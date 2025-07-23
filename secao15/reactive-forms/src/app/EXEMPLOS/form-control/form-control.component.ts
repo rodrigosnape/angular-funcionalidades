@@ -8,15 +8,19 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class FormControlComponent implements OnInit{
 
-  nome = new FormControl('Inicial', [
+/*  nome = new FormControl('Inicial', [
     Validators.required,
     Validators.minLength(6)
-  ]);
+  ]); */
   //nonNullable não deixa o valor inicial ser resetado. Ele, quando for resetado, volta para o valor inicial
-  //nome = new FormControl('Inicial', { nonNullable: true, validators: [Validators.required] });
+  nome = new FormControl('Inicial', { nonNullable: true, validators: [Validators.required], updateOn: 'blur' });
 
   ngOnInit() {
     console.log(this.nome);
+
+    this.nome.valueChanges.subscribe((result) => console.log('valueChanges: ', result));
+
+    this.nome.statusChanges.subscribe((result) => console.log('statusChange: ', result));
   }
 
   mostrarStatus(){
@@ -40,7 +44,7 @@ export class FormControlComponent implements OnInit{
   }
 
   resetar(){
-     /* this.nome.reset(); */
-     this.nome.reset('Passando um valor durante o reset');
+      this.nome.reset();
+     //this.nome.reset('Passando um valor durante o reset');
   }
 }
