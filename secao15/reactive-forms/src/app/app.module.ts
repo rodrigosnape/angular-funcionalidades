@@ -17,6 +17,7 @@ import { FormCompFilhosComponent } from './EXEMPLOS/form-comp-filhos/form-comp-f
 import { EnderecoComponent } from './EXEMPLOS/form-comp-filhos/components/endereco/endereco.component';
 import { MarkAsTouchedComponent } from './EXEMPLOS/mark-as-touched/mark-as-touched.component';
 import { DesafioTouchedComponent } from './EXEMPLOS/desafio-touched/desafio-touched.component';
+import { FormComChamadaHttpComponent } from './EXEMPLOS/form-com-chamada-http/form-com-chamada-http.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { DesafioTouchedComponent } from './EXEMPLOS/desafio-touched/desafio-touc
     FormCompFilhosComponent,
     EnderecoComponent,
     MarkAsTouchedComponent,
-    DesafioTouchedComponent
+    DesafioTouchedComponent,
+    FormComChamadaHttpComponent
   ],
   imports: [
     BrowserModule,
