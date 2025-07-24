@@ -19,6 +19,7 @@ import { MarkAsTouchedComponent } from './EXEMPLOS/mark-as-touched/mark-as-touch
 import { DesafioTouchedComponent } from './EXEMPLOS/desafio-touched/desafio-touched.component';
 import { FormComChamadaHttpComponent } from './EXEMPLOS/form-com-chamada-http/form-com-chamada-http.component';
 import { CrossValidatorComponent } from './EXEMPLOS/cross-validator/cross-validator.component';
+import { AddAndRemoveControlComponent } from './EXEMPLOS/add-and-remove-control/add-and-remove-control.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { CrossValidatorComponent } from './EXEMPLOS/cross-validator/cross-valida
     MarkAsTouchedComponent,
     DesafioTouchedComponent,
     FormComChamadaHttpComponent,
-    CrossValidatorComponent
+    CrossValidatorComponent,
+    AddAndRemoveControlComponent
   ],
   imports: [
     BrowserModule,
