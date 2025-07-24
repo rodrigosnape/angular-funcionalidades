@@ -11,15 +11,24 @@ export class FormComChamadaHttpComponent implements OnInit{
 
   pessoaForm!: FormGroup;
 
+  personForm!: FormGroup;
+
   constructor(private readonly _userService: UserService){}
 
   ngOnInit() {
     this.createPessoaForm();
     this.getUserAndFullfilPessoaForm();
+
+    this.createPersonForm();
+    this.getUserAndFullfilPersonForm();
   }
 
   get telefones(): FormArray {
     return this.pessoaForm.get('telefones') as FormArray;
+  }
+
+  get phoneNumbers(): FormArray {
+    return this.personForm.get('phoneNumbers') as FormArray;
   }
 
   private createPessoaForm() {
@@ -53,5 +62,50 @@ export class FormComChamadaHttpComponent implements OnInit{
     });
 
     console.log(this.pessoaForm);
+  }
+
+  //=======FORM COM CONVERSÃO =======
+
+  private createPersonForm(){
+    this.personForm = new FormGroup({
+      name: new FormControl(''),
+      age: new FormControl(null),
+      active: new FormControl(false),
+      address: new FormGroup({
+        street: new FormControl(''),
+        number: new FormControl(null),
+      }),
+      phoneNumbers: new FormArray([]),
+    });
+  }
+
+  private getUserAndFullfilPersonForm() {
+    this._userService.getUser().subscribe((userResponse) => {
+      this.fullfilPersonForm(userResponse);
+    })
+  }
+
+  fullfilPersonForm(userResponse: any) {
+    const person ={
+      name: userResponse.nome,
+      age: userResponse.idade,
+      active: userResponse.ativo,
+      address: {
+        street: userResponse.endereco.rua,
+        number: userResponse.endereco.numero,
+      },
+      phoneNumbers: [],
+    }
+
+    this.personForm.patchValue(person);
+
+    userResponse.telefones.forEach((tel:any) => {
+      this.phoneNumbers.push(new FormGroup({
+        number: new FormControl(tel.numero),
+        area: new FormControl(tel.ddd)
+      }));
+    });
+
+    console.log(this.personForm);
   }
 }
