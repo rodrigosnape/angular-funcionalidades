@@ -6,3 +6,11 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background-color:darkcyan}
+
+
+ .user-card-hover:hover{
+    background-color: #9ca3af !important;
+    cursor: pointer;
+    color: white;
+
+ }
