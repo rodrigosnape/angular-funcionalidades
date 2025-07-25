@@ -3,6 +3,8 @@ import { CountriesService } from './services/countries.service';
 import { StatesService } from './services/states.service';
 import { CitiesService } from './services/cities.service';
 import { UsersService } from './services/users.service';
+import { UsersListResponse } from './types/users-list.response';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +12,9 @@ import { UsersService } from './services/users.service';
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit{
+
+  usersList: UsersListResponse = [];
+
   constructor(
     private readonly _countriesService: CountriesService,
     private readonly _statesService: StatesService,
@@ -18,7 +23,7 @@ export class AppComponent implements OnInit{
   ){}
   
   ngOnInit(){
-     this._countriesService.getCountries().subscribe((countriesResponse) => { 
+/*      this._countriesService.getCountries().subscribe((countriesResponse) => { 
       console.log('countriesResponse',countriesResponse) 
     } );
 
@@ -28,10 +33,12 @@ export class AppComponent implements OnInit{
 
     this._citiesService.getCities('Brazil', 'Rio de Janeiro').subscribe((citiesResponse) => {
       console.log('citiesResponse', citiesResponse)
-    })
+    }) */
 
-    this._usersService.getUsers().subscribe((usersListResponse) => {
-      console.log('usersResponse', usersListResponse);
+    //take(1) é a quantidade de vezes que meu subscribe ficará ouvindo. Depois de 1, ele se desinscreve.
+    this._usersService.getUsers().pipe(take(1)).subscribe((usersListResponse) => {
+      //console.log('usersResponse', usersListResponse);
+      this.usersList = usersListResponse;
     })
   }
 }
