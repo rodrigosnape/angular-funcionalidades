@@ -5,6 +5,7 @@ import { CitiesService } from './services/cities.service';
 import { UsersService } from './services/users.service';
 import { UsersListResponse } from './types/users-list.response';
 import { take } from 'rxjs';
+import { MatTabChangeEvent } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ import { take } from 'rxjs';
 export class AppComponent implements OnInit{
 
   usersList: UsersListResponse = [];
+  currentTabIndex: number = 0;
 
   constructor(
     private readonly _countriesService: CountriesService,
@@ -40,5 +42,9 @@ export class AppComponent implements OnInit{
       //console.log('usersResponse', usersListResponse);
       this.usersList = usersListResponse;
     })
+  }
+
+  onTabChange(value: MatTabChangeEvent) {
+    console.log(value);
   }
 }
