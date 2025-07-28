@@ -1,7 +1,14 @@
+import { IPhoneToDisplay } from './../../../../interfaces/phone-to-display.interface';
+import { IPhone } from './../../../../interfaces/user/phone.interface';
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { PhoneList } from '../../../../types/phone-list';
 import { PhoneTypeEnum } from '../../../../enums/phone-type.enum';
-import { IPhone } from '../../../../interfaces/user/phone.interface';
+import { phoneTypeDescriptionsMap } from '../../../../utils/phone-type-description-map';
+
+interface IPhoneToDisplaylay {
+  type:string,
+  phoneNumber:string,
+}
 
 @Component({
   selector: 'app-phone-list',
@@ -10,7 +17,7 @@ import { IPhone } from '../../../../interfaces/user/phone.interface';
 })
 export class PhoneListComponent implements OnChanges{
   
-  phoneListToDisplay: any[] = [];
+  phoneListToDisplay: IPhoneToDisplay[] = [];
 
   @Input( { required: true }) userPhoneList: PhoneList | undefined = [];
 
@@ -23,12 +30,6 @@ export class PhoneListComponent implements OnChanges{
 
   preperePhoneListToDisplay() {
     this.phoneListToDisplay = [];
-
-    const phoneTypeDescriptionsMap: { [key in PhoneTypeEnum]: string } = {
-      [PhoneTypeEnum.RESIDENTIAL]: 'Residencial',
-      [PhoneTypeEnum.MOBILE]: 'Celular',
-      [PhoneTypeEnum.EMERGENCY]: 'Emergencial',
-    }
 
     //console.log(Object.keys(phoneTypeDescriptionsMap));
 
