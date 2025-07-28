@@ -14,12 +14,14 @@ import { IUser } from './interfaces/user/user.interface';
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit{
+  isInEditMode: boolean = false;
+
   userSelectedIndex: number | undefined;
   userSelected: IUser = {} as IUser;
 
   usersList: UsersListResponse = [];
   currentTabIndex: number = 0;
-
+  
   constructor(
     private readonly _countriesService: CountriesService,
     private readonly _statesService: StatesService,
@@ -59,5 +61,12 @@ export class AppComponent implements OnInit{
       this.userSelected = structuredClone(userFound);
       this.currentTabIndex = 0; // Reseta o índice da aba para a primeira aba
     }
+  }
+
+  onCancelButton() {
+    this.isInEditMode = false;
+  }
+  onEditButton() {
+    this.isInEditMode = true;
   }
 }
