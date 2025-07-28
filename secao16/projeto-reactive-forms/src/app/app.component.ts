@@ -15,7 +15,7 @@ import { MatTabChangeEvent } from '@angular/material/tabs';
 export class AppComponent implements OnInit{
 
   usersList: UsersListResponse = [];
-  currentTabIndex: number = 1;
+  currentTabIndex: number = 2;
 
   constructor(
     private readonly _countriesService: CountriesService,
