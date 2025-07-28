@@ -6,6 +6,7 @@ import { UsersService } from './services/users.service';
 import { UsersListResponse } from './types/users-list.response';
 import { take } from 'rxjs';
 import { MatTabChangeEvent } from '@angular/material/tabs';
+import { IUser } from './interfaces/user/user.interface';
 
 @Component({
   selector: 'app-root',
@@ -13,9 +14,11 @@ import { MatTabChangeEvent } from '@angular/material/tabs';
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit{
+  userSelectedIndex: number | undefined;
+  userSelected: IUser = {} as IUser;
 
   usersList: UsersListResponse = [];
-  currentTabIndex: number = 2;
+  currentTabIndex: number = 0;
 
   constructor(
     private readonly _countriesService: CountriesService,
@@ -46,5 +49,15 @@ export class AppComponent implements OnInit{
 
   onTabChange(value: MatTabChangeEvent) {
     console.log(value);
+  }
+
+  onUserSelected(userIndex: number) {
+    const userFound = this.usersList[userIndex];
+
+    if(userFound) {
+      this.userSelectedIndex = userIndex;
+      this.userSelected = structuredClone(userFound);
+      this.currentTabIndex = 0; // Reseta o índice da aba para a primeira aba
+    }
   }
 }
