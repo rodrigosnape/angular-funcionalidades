@@ -1,0 +1,10 @@
+    <div class="p-4 grid lg:grid-cols-3 gap-4">
+        <app-user-info-item 
+            *ngFor="let phone of userPhoneList" 
+            [title]="phone?.type?.toString()" 
+            [text]="phone.number">
+        </app-user-info-item>
+
+        <app-user-info-item title="Celular" text="+55 21 21111-22222"></app-user-info-item>
+        <app-user-info-item title="Emergência" text="-"></app-user-info-item>
+    </div>
