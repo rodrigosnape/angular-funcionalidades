@@ -4,6 +4,8 @@ import { UserFormController } from './user-form-controller';
 import { CountriesService } from '../../services/countries.service';
 import { take } from 'rxjs';
 import { CountriesList } from '../../types/countries-list';
+import { StatesService } from '../../services/states.service';
+import { StatesList } from '../../types/states-list';
 
 @Component({
   selector: 'app-user-informations-container',
@@ -14,8 +16,11 @@ export class UserInformationsContainerComponent extends UserFormController imple
 
     currentTabIndex: number = 1;
     countriesList: CountriesList = [];
+    statesList: StatesList = [];
 
     private readonly _contriesService = inject(CountriesService);
+    private readonly _statesService = inject(StatesService);
+
 
     @Input({ required: true }) userSelected: IUser = {} as IUser;
 
@@ -33,7 +38,19 @@ export class UserInformationsContainerComponent extends UserFormController imple
       
       if(HAS_USER_SELECTED) {
         this.fulfillUserForm(this.userSelected);
+
+        this.getStatesList(this.userSelected.country);
       }
+    }
+
+    onCountrySelected(countryName: string) {
+      this.getStatesList(countryName);
+    }
+    
+    getStatesList(country: string) {
+      this._statesService.getStates(country).pipe(take(1)).subscribe((statesList: StatesList) => {
+        this.statesList = statesList;
+      })
     }
 
     getCountriesList() {     

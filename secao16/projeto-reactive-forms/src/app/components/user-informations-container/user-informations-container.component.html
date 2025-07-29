@@ -4,6 +4,8 @@
         <app-general-informations-edit 
             [userForm]="userForm"
             [countriesList]="countriesList"
+            [statesList]="statesList"
+            (onCountrySelect)="onCountrySelected($event)"
             >
     </app-general-informations-edit>        
     </mat-tab>
