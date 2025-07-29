@@ -2,9 +2,10 @@ import { PhoneTypeEnum } from './../enums/phone-type.enum';
 import { IPhone } from "../interfaces/user/phone.interface";
 import { PhoneList } from "../types/phone-list";
 import { phoneTypeDescriptionsMap } from "./phone-type-description-map";
+import { IPhoneToDisplay } from '../interfaces/phone-to-display.interface';
 
 //Função mais insana até este ponto do curso...
-export const preparePhoneList =  (originalUserPhoneList: PhoneList, isDisplayPhone: boolean, callback: (phone: { type: number; typeDescription:string; phoneNumber: string}) => void) => {
+export const preparePhoneList =  (originalUserPhoneList: PhoneList, isDisplayPhone: boolean, callback: (phone: IPhoneToDisplay) => void) => {
     Object.keys(phoneTypeDescriptionsMap).map(Number).forEach((phoneType: number) => {
         //console.log(phoneType);
         const phoneFound = originalUserPhoneList.find((userPhone: IPhone) => userPhone.type === phoneType);
