@@ -13,6 +13,9 @@ import { StatesList } from '../../types/states-list';
   styleUrl: './user-informations-container.component.scss'
 })
 export class UserInformationsContainerComponent extends UserFormController implements OnInit, OnChanges {
+mostrarUserForm() {
+console.log('--------------------------->',this.userForm);
+}
 
     currentTabIndex: number = 1;
     countriesList: CountriesList = [];
