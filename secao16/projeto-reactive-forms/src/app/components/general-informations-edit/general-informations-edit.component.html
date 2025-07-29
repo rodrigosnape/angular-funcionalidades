@@ -49,7 +49,8 @@
             </div>
             <mat-form-field class="w-full">
                 <mat-label>Renda Mensal:</mat-label>
-                <input matInput type="text" placeholder="Renda Mensal" formControlName="monthlyIncome">
+                <span matTextPrefix *ngIf="monthlyIncome.value">R$</span>
+                <input #monthlyIncome matInput type="text" placeholder="Renda Mensal" formControlName="monthlyIncome" mask="separator.2" thousandSeparator="." decimalSeparator=",">
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Data de Nascimento:</mat-label>
