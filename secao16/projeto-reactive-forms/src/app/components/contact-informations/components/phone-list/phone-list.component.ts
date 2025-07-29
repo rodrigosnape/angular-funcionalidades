@@ -4,11 +4,8 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { PhoneList } from '../../../../types/phone-list';
 import { PhoneTypeEnum } from '../../../../enums/phone-type.enum';
 import { phoneTypeDescriptionsMap } from '../../../../utils/phone-type-description-map';
+import { preparePhoneList } from '../../../../utils/prepare-phone-list';
 
-interface IPhoneToDisplaylay {
-  type:string,
-  phoneNumber:string,
-}
 
 @Component({
   selector: 'app-phone-list',
@@ -31,9 +28,17 @@ export class PhoneListComponent implements OnChanges{
   preperePhoneListToDisplay() {
     this.phoneListToDisplay = [];
 
+    const originalUserPhoneList = this.userPhoneList && this.userPhoneList.length > 0 ? this.userPhoneList : [];
+
+    //insanidade que substituiu o resto comentado...
+    preparePhoneList(originalUserPhoneList, (phone) => {
+      this.phoneListToDisplay.push(phone);
+      console.log('callback', phone);
+    });
+
     //console.log(Object.keys(phoneTypeDescriptionsMap));
 
-    Object.keys(phoneTypeDescriptionsMap).map(Number).forEach((phoneType: number) => {
+/*     Object.keys(phoneTypeDescriptionsMap).map(Number).forEach((phoneType: number) => {
       //console.log(phoneType);
       const phoneFound = this.userPhoneList?.find((userPhone: IPhone) => userPhone.type === phoneType);
       //console.log(phoneFound);
@@ -42,7 +47,7 @@ export class PhoneListComponent implements OnChanges{
         type: phoneTypeDescriptionsMap[phoneType as PhoneTypeEnum],
         phoneNumber: phoneFound ? this.formatPhoneNumber(phoneFound) : '-',
       });
-    });
+    }); */
 
     //console.log(this.phoneListToDisplay);
   }
