@@ -4,6 +4,7 @@ import { inject } from "@angular/core";
 import { FormArray, FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { IUser } from "../../interfaces/user/user.interface";
 import { AddressList } from '../../types/address-list';
+import { convertPtBrDateToDateObj } from '../../utils/convert-pt-br-date-to-date-obj';
 
 export class UserFormController {
     userForm!: FormGroup;
@@ -96,7 +97,12 @@ export class UserFormController {
     }
 
     private fulfillGeneralInformation(user: IUser) {
-        this.generalInformations?.patchValue(user);
+        const newUser = {
+            ...user,
+            birthDate: convertPtBrDateToDateObj(user.birthDate)
+        };
+
+        this.generalInformations?.patchValue(newUser);
 
         //console.log(this.userForm);
     }
