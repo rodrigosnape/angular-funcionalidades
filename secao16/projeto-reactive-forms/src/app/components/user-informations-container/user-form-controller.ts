@@ -87,17 +87,6 @@ export class UserFormController {
                 state: [address.state],
                 city: [address.city],          
             }));
-        })
-
-        userAddressList.forEach((address) => {
-            this.addressList.push(this._fb.group({
-                type: [address.type, Validators.required],
-                street: [address.street, Validators.required],
-                complement: [address.complement, Validators.required],
-                country: [address.country, Validators.required],
-                state: [address.state, Validators.required],
-                city: [address.city, Validators.required],
-            }))
         });
 
         console.log('this.addressLis1t',this.addressList);
