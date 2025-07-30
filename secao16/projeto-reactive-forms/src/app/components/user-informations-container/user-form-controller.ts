@@ -7,6 +7,7 @@ import { AddressList } from '../../types/address-list';
 import { convertPtBrDateToDateObj } from '../../utils/convert-pt-br-date-to-date-obj';
 import { preparePhoneList } from '../../utils/prepare-phone-list';
 import { PhoneTypeEnum } from '../../enums/phone-type.enum';
+import { prepareAddressList } from '../../utils/prepare-address-list';
 
 export class UserFormController {
     userForm!: FormGroup;
@@ -75,6 +76,19 @@ export class UserFormController {
     }
 
     private fulfillAddressList(userAddressList: AddressList) {
+
+        prepareAddressList(userAddressList, false, (address) => {
+            this.addressList.push(this._fb.group({
+                type: [address.type],
+                typeDescription: [{value: address.typeDescription, disabled: true}],
+                street: [address.street],
+                complement: [address.complement],
+                country: [address.country],
+                state: [address.state],
+                city: [address.city],          
+            }));
+        })
+
         userAddressList.forEach((address) => {
             this.addressList.push(this._fb.group({
                 type: [address.type, Validators.required],
@@ -84,7 +98,11 @@ export class UserFormController {
                 state: [address.state, Validators.required],
                 city: [address.city, Validators.required],
             }))
-        })
+        });
+
+        console.log('this.addressLis1t',this.addressList);
+        //console.log('this.addressList .value',this.addressList.value);
+        //console.log('this.addressList .getRawValue()',this.addressList.getRawValue());
     }
     
     private fulfillPhoneList(userPhoneList: PhoneList) {
