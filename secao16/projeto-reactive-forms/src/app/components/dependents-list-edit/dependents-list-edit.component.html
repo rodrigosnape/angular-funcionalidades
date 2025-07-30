@@ -24,7 +24,10 @@
                     <mat-error *ngIf="dependent.get('document')?.hasError('mask')">O Documento é inválido</mat-error>
                 </mat-form-field>
                 <div class="flex justify-center items-baseline box-border py-3">
-                    <button class="rounded-md px-3 py-2 text-lg font-medium leading-5 text-white bg-red-600 hover:bg-red-500">Deletar</button>
+                    <button 
+                        class="rounded-md px-3 py-2 text-lg font-medium leading-5 text-white bg-red-600 hover:bg-red-500"
+                        (click)="removeDependent(i)"
+                    >Deletar</button>
                 </div>
             </div>
         
