@@ -11,10 +11,15 @@ export class DependentsListEditComponent {
   @Input( {required: true} ) userForm!: FormGroup;
 
   @Output('onRemoveDependent') onRemoveDependentEmitt = new EventEmitter<number>();
+  @Output('onAddDependent') onAddDependentEmitt = new EventEmitter<void>();
 
   get dependentsList(): FormArray {
     return this.userForm.get('dependentsList') as FormArray;
   }
+
+  addDependent() {
+    this.onAddDependentEmitt.emit();
+  } 
 
   removeDependent(dependentIndex: any) {
     this.onRemoveDependentEmitt.emit(dependentIndex);
