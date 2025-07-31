@@ -1,5 +1,6 @@
 import { IUserForm, IUserFormGeneralInformations } from "../interfaces/user-form.interface";
 import { IUser } from "../interfaces/user/user.interface";
+import { convertDateObjToPtBrDate } from "./convert-date-obj-to-pt-br-date";
 
 export const convertUserFormToUser = (userForm: IUserForm): IUser => {
     let newUser: Partial<IUser> = {} as IUser;
@@ -17,6 +18,6 @@ const convertGeneralInformations = (generalInformations: IUserFormGeneralInforma
         state: generalInformations.state,
         maritalStatus: generalInformations.maritalStatus,
         monthlyIncome: generalInformations.monthlyIncome,
-        birthDate: '',
+        birthDate: convertDateObjToPtBrDate(generalInformations.birthDate),
     }
 }
