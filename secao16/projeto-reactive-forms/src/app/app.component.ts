@@ -1,5 +1,5 @@
 import { UpdateUserService } from './services/update-user.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CountriesService } from './services/countries.service';
 import { StatesService } from './services/states.service';
 import { CitiesService } from './services/cities.service';
@@ -10,6 +10,7 @@ import { IUser } from './interfaces/user/user.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 import { IDialogConfirmationData } from './interfaces/dialog-confirmation-data.interface';
+import { UserInformationsContainerComponent } from './components/user-informations-container/user-informations-container.component';
 
 @Component({
   selector: 'app-root',
@@ -25,6 +26,8 @@ export class AppComponent implements OnInit{
   userSelected: IUser = {} as IUser;
 
   usersList: UsersListResponse = [];
+
+  @ViewChild(UserInformationsContainerComponent) userInfoContainerComp!: UserInformationsContainerComponent;
 
   
   constructor(
@@ -121,6 +124,8 @@ export class AppComponent implements OnInit{
   }
 
   private convertUserFormToUser(): IUser {
+    console.log('this.userInfoContainerComp',this.userInfoContainerComp);
+    console.log('this.userInfoContainerComp getRawValue()',this.userInfoContainerComp.userForm.getRawValue());
     return {} as IUser;
   }
 }
