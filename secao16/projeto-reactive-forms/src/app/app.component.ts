@@ -15,6 +15,7 @@ import { IUser } from './interfaces/user/user.interface';
 export class AppComponent implements OnInit{
   isInEditMode: boolean = false;
   enableSaveButton: boolean = false;
+  userFormUpdated: boolean = false;
 
   userSelectedIndex: number | undefined;
   userSelected: IUser = {} as IUser;
@@ -72,5 +73,10 @@ export class AppComponent implements OnInit{
     //Solução gambiarresca oficial do time do ANGULAR
     //https://www.youtube.com/watch?v=O47uUnJjbJc&t=229s&ab_channel=Angular
     setTimeout(() => this.enableSaveButton = formStatus, 0);
+  }
+
+  onUserFormFirstChange() {
+    console.log('onUserFormFirstChange');
+    this.userFormUpdated = true;
   }
 }
