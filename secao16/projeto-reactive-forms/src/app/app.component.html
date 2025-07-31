@@ -4,16 +4,18 @@
         <app-users-list
           [isInEditMode]="isInEditMode"
           [usersList]="usersList" 
-          (onUserSelected)="onUserSelected($event)"></app-users-list>
+          (onUserSelected)="onUserSelected($event)">
+        </app-users-list>
+
         <app-buttons-container
           *ngIf="userSelectedIndex !== undefined"
           [isInEditMode]="isInEditMode"
           [enableSaveButton]="enableSaveButton" 
           (onEditButton)="onEditButton()"
           (onCancelButton)="onCancelButton()"          
-          >
-        
+          (onSaveButton)="onSaveButton()">        
         </app-buttons-container>
+
         <app-user-informations-container
           *ngIf="userSelectedIndex !== undefined" 
           [isInEditMode]="isInEditMode"
