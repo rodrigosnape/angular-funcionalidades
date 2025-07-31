@@ -1,12 +1,15 @@
 import { NgModule } from "@angular/core";
 import { ShowTextPipe } from './show-text.pipe';
+import { TransformTextPipe } from './transform-text.pipe';
 
 @NgModule({
     declarations: [
-        ShowTextPipe
+        ShowTextPipe,
+        TransformTextPipe
   ],
     exports: [
-        ShowTextPipe
+        ShowTextPipe,
+        TransformTextPipe
     ],
 })
 export class PipesModule {}

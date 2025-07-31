@@ -1,3 +1,4 @@
+console.log('ShowTextPipe');
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
