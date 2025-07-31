@@ -89,6 +89,7 @@ export class AppComponent implements OnInit{
   }
 
   onEditButton() {
+    this.userSelected = structuredClone(this.userSelected);
     this.isInEditMode = true;
   }
   onFormStatusChange(formStatus: boolean) {
