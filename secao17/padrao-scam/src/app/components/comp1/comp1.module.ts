@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Comp1Component } from './comp1.component';
-import { PipesModule } from '../../pipes/pipes.module';
+import { ShowTextPipeModule } from '../../pipes/show-text-pipe/show-text-pipe.module';
+import { TransformTextPipeModule } from '../../pipes/transform-text-pipe/transform-text-pipe.module';
+
 
 @NgModule({
   declarations: [
@@ -9,7 +11,8 @@ import { PipesModule } from '../../pipes/pipes.module';
   ],
   imports: [
     CommonModule,
-    PipesModule
+    ShowTextPipeModule,
+    TransformTextPipeModule,
   ],
   exports: [
     Comp1Component
