@@ -1,3 +1,4 @@
+import { UpdateUserService } from './services/update-user.service';
 import { Component, OnInit } from '@angular/core';
 import { CountriesService } from './services/countries.service';
 import { StatesService } from './services/states.service';
@@ -28,7 +29,8 @@ export class AppComponent implements OnInit{
   
   constructor(
     private readonly _usersService: UsersService,
-    private readonly _matDialog: MatDialog
+    private readonly _matDialog: MatDialog,
+    private readonly _updateUserService: UpdateUserService
   ){}
   
   ngOnInit(){
@@ -109,6 +111,16 @@ export class AppComponent implements OnInit{
   }
 
   private saveUserInfos(){
-    console.log('Valores Alterados!');
+    const newUser: IUser = this.convertUserFormToUser();
+
+    this._updateUserService.updateUser(newUser).subscribe((newUserResponse: IUser) => {
+      if(this.userSelectedIndex === undefined) return;
+
+      this.usersList[this.userSelectedIndex] = newUserResponse
+    });
+  }
+
+  private convertUserFormToUser(): IUser {
+    return {} as IUser;
   }
 }
