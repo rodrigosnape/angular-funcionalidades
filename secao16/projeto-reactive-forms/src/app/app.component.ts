@@ -1,8 +1,5 @@
 import { UpdateUserService } from './services/update-user.service';
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { CountriesService } from './services/countries.service';
-import { StatesService } from './services/states.service';
-import { CitiesService } from './services/cities.service';
+import { Component, OnInit } from '@angular/core';
 import { UsersService } from './services/users.service';
 import { UsersListResponse } from './types/users-list.response';
 import { take } from 'rxjs';
@@ -10,7 +7,6 @@ import { IUser } from './interfaces/user/user.interface';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 import { IDialogConfirmationData } from './interfaces/dialog-confirmation-data.interface';
-import { UserInformationsContainerComponent } from './components/user-informations-container/user-informations-container.component';
 import { UserFormRawValueService } from './services/user-form-raw-value.service';
 import { convertUserFormToUser } from './utils/convert-user-form-to-user';
 
