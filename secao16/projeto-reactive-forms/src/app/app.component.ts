@@ -111,9 +111,9 @@ export class AppComponent implements OnInit{
   }
 
   private saveUserInfos(){
-    console.log('antes',structuredClone(this.userSelected));
+    //console.log('antes',structuredClone(this.userSelected));
     const newUser: IUser = convertUserFormToUser(this._userFormRawValueService.userFormRawValue);
-    console.log('depois', newUser);
+    //console.log('depois', newUser);
 
     this._updateUserService.updateUser(newUser).subscribe((newUserResponse: IUser) => {
       if(this.userSelectedIndex === undefined) return;

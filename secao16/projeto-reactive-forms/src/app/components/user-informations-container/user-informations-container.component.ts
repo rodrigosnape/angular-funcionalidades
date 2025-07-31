@@ -58,7 +58,7 @@ export class UserInformationsContainerComponent extends UserFormController imple
     }
 
     mostrarForm() {
-      console.log('--------------------------->',this.userForm);
+      //console.log('--------------------------->',this.userForm);
     }
 
     private onUserFormFirstChange() {

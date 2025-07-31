@@ -10,7 +10,7 @@ import { MaritalStatusEnum } from "../enums/marital-status.enum";
         return { code: key, description: maritalStatusDescriptionMap[key as MaritalStatusEnum]}
     });
 
-    console.warn(maritalStatusArray);
+    //console.warn(maritalStatusArray);
 /* 
 O retorno de maritalStatusArray é isso:   
 doidera...
