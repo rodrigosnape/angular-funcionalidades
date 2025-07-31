@@ -8,6 +8,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { MAT_DATE_LOCALE, provideNativeDateAdapter } from "@angular/material/core";
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose } from '@angular/material/dialog';
 
 @NgModule({
     imports: [
@@ -19,6 +21,11 @@ import { MAT_DATE_LOCALE, provideNativeDateAdapter } from "@angular/material/cor
         MatRadioModule,
         MatDatepickerModule,
         MatIconModule,
+        MatButtonModule,
+        MatDialogTitle,
+        MatDialogContent,
+        MatDialogActions,
+        MatDialogClose,
     ],
     exports: [
         MatCardModule,
@@ -28,7 +35,12 @@ import { MAT_DATE_LOCALE, provideNativeDateAdapter } from "@angular/material/cor
         MatAutocompleteModule,
         MatRadioModule,
         MatDatepickerModule,  
-        MatIconModule
+        MatIconModule,
+        MatButtonModule,
+        MatDialogTitle,
+        MatDialogContent,
+        MatDialogActions,
+        MatDialogClose,
     ],
     providers: [
         provideNativeDateAdapter(),
