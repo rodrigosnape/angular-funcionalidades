@@ -27,7 +27,10 @@ export class AppComponent implements OnInit{
 
   usersList: UsersListResponse = [];
 
-  @ViewChild(UserInformationsContainerComponent) userInfoContainerComp!: UserInformationsContainerComponent;
+  userFormRawValueTrigger: number = 0;
+  userFormRawValue: Object = {};
+
+  //@ViewChild(UserInformationsContainerComponent) userInfoContainerComp!: UserInformationsContainerComponent;
 
   
   constructor(
@@ -73,6 +76,8 @@ export class AppComponent implements OnInit{
   }
 
   onSaveButton() {
+    this.userFormRawValueTrigger += 1;
+    
     this.openConfirmationDialog({
         title: 'Confirmar alteração de dados',
         message: 'Deseja realmente salvar os valores alterados?',
@@ -124,8 +129,10 @@ export class AppComponent implements OnInit{
   }
 
   private convertUserFormToUser(): IUser {
-    console.log('this.userInfoContainerComp',this.userInfoContainerComp);
-    console.log('this.userInfoContainerComp getRawValue()',this.userInfoContainerComp.userForm.getRawValue());
+    //console.log('this.userInfoContainerComp',this.userInfoContainerComp);
+    //console.log('this.userInfoContainerComp getRawValue()',this.userInfoContainerComp.userForm.getRawValue());
+
+    console.log('this.userFormRawValue',this.userFormRawValue);
     return {} as IUser;
   }
 }

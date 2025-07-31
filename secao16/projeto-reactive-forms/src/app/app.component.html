@@ -20,8 +20,10 @@
           *ngIf="userSelectedIndex !== undefined" 
           [isInEditMode]="isInEditMode"
           [userSelected]="userSelected"
+          [userFormRawValueTrigger]="userFormRawValueTrigger"
           (onFormStatusChangeEmitt)="onFormStatusChange($event)"
           (onUserFormFirstChange)="onUserFormFirstChange()"
+          (userFormRawValue)="userFormRawValue = $event"
         >
         </app-user-informations-container>
     </mat-card-content>
