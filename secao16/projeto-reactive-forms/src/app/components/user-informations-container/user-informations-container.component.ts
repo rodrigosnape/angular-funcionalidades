@@ -1,8 +1,8 @@
 import { IUser } from './../../interfaces/user/user.interface';
-import { Component, inject, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { UserFormController } from './user-form-controller';
 import { CountriesService } from '../../services/countries.service';
-import { take } from 'rxjs';
+import { distinctUntilChanged, take } from 'rxjs';
 import { CountriesList } from '../../types/countries-list';
 import { StatesService } from '../../services/states.service';
 import { StatesList } from '../../types/states-list';
@@ -28,8 +28,11 @@ console.log('--------------------------->',this.userForm);
     @Input({ required: true }) userSelected: IUser = {} as IUser;
 
     @Input({ required: true } ) isInEditMode: boolean = false;
+
+    @Output('onFormStatusChangeEmitt') onFormStatusChangeEmitt = new EventEmitter<boolean>();
     
-    ngOnInit(){      
+    ngOnInit(){
+      this.onUserFormStatusChange();      
       this.getCountriesList();
     }
     
@@ -48,6 +51,12 @@ console.log('--------------------------->',this.userForm);
 
     onCountrySelected(countryName: string) {
       this.getStatesList(countryName);
+    }
+
+    onUserFormStatusChange() {
+      this.userForm.statusChanges
+        .pipe(distinctUntilChanged())
+        .subscribe(() => this.onFormStatusChangeEmitt.emit(this.userForm.valid));
     }
     
     getStatesList(country: string) {
