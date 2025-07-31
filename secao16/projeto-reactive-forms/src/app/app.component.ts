@@ -12,6 +12,7 @@ import { ConfirmationDialogComponent } from './components/confirmation-dialog/co
 import { IDialogConfirmationData } from './interfaces/dialog-confirmation-data.interface';
 import { UserInformationsContainerComponent } from './components/user-informations-container/user-informations-container.component';
 import { UserFormRawValueService } from './services/user-form-raw-value.service';
+import { convertUserFormToUser } from './utils/convert-user-form-to-user';
 
 @Component({
   selector: 'app-root',
@@ -124,6 +125,7 @@ export class AppComponent implements OnInit{
 
   private convertUserFormToUser(): IUser {
     console.log('_userFormRawValueService',this._userFormRawValueService.userFormRawValue);
+    console.log('convertUserFormToUser',convertUserFormToUser(this._userFormRawValueService.userFormRawValue));
     return {} as IUser;
   }
 }
