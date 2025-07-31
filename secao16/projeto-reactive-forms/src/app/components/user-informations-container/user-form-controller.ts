@@ -46,7 +46,7 @@ export class UserFormController {
         return this.generalInformations.valid;
     }
 
-    get contactInformationsValid(): boolean { console.log('----------->',this.contactInformations);
+    get contactInformationsValid(): boolean { //console.log('----------->',this.contactInformations);
         return this.contactInformations.valid;
     }
 
@@ -68,15 +68,19 @@ export class UserFormController {
         this.userForm.markAllAsTouched();
         this.userForm.updateValueAndValidity();
 
-        console.log(this.userForm);
+        //console.log(this.userForm);
     }
 
     addDependent() {
         this.dependentsList.push(this.createDependentGroup());
+
+        this.dependentsList.markAsDirty();
     }
 
     removeDependent(dependentIndex: number) {
         this.dependentsList.removeAt(dependentIndex);
+
+        this.dependentsList.markAsDirty();
     }
 
     private createDependentGroup(dependent: IDependent | null = null){
@@ -132,7 +136,7 @@ export class UserFormController {
             }));
         });
 
-        console.log('this.addressLis1t',this.addressList);
+        //console.log('this.addressLis1t',this.addressList);
         //console.log('this.addressList .value',this.addressList.value);
         //console.log('this.addressList .getRawValue()',this.addressList.getRawValue());
     }
@@ -147,7 +151,7 @@ export class UserFormController {
             }))
         });
 
-        console.log(' this.phoneList', this.phoneList)
+        //console.log(' this.phoneList', this.phoneList)
 
 /*         userPhoneList.forEach((phone) => {
             this.phoneList.push(this._fb.group({

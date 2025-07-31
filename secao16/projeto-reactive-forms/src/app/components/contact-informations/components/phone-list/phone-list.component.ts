@@ -33,7 +33,7 @@ export class PhoneListComponent implements OnChanges{
     //insanidade que substituiu o resto comentado...
     preparePhoneList(originalUserPhoneList, true, (phone) => {
       this.phoneListToDisplay.push(phone);
-      console.log('callback', phone);
+      //console.log('callback', phone);
     });
 
     //console.log(Object.keys(phoneTypeDescriptionsMap));

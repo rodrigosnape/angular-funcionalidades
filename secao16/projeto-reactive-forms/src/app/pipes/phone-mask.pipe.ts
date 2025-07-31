@@ -7,7 +7,7 @@ import { PhoneTypeEnum } from '../enums/phone-type.enum';
 export class PhoneMaskPipe implements PipeTransform {
 
   transform(phoneType: number): string {
-    console.log('PhoneMaskPipe');
+    //console.log('PhoneMaskPipe');
     const phoneMaskmap: { [key in PhoneTypeEnum]: string} = {
       [PhoneTypeEnum.RESIDENTIAL]: '+00 00 0000-0000',
       [PhoneTypeEnum.MOBILE]: '+00 00 00000-0000',
