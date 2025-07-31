@@ -28,4 +28,4 @@ export const requiredAddressValidator: ValidatorFn = (control: AbstractControl):
 const hasText =  (control: AbstractControl | null): boolean => {
     //!!control: garante que control existe (não é null ou undefined);
     return !!control && control.value && control.value.toString().trim().length > 0;
-}
+};

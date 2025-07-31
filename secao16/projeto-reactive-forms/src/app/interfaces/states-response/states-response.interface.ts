@@ -3,4 +3,4 @@ import { IStateResponseData } from "./state-response-data.interface";
 
 export interface IStatesResponse extends IBaseCountriesResponse {
     data: IStateResponseData;
-}
+};

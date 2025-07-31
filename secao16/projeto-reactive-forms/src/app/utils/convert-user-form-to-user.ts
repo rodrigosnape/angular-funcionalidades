@@ -30,7 +30,7 @@ const convertGeneralInformations = (generalInformations: IUserFormGeneralInforma
         monthlyIncome: generalInformations.monthlyIncome,
         birthDate: convertDateObjToPtBrDate(generalInformations.birthDate),
     }
-}
+};
 
 const convertPhoneList = (phoneList: IUserFormPhone[]): PhoneList => {
     const newUserPhoneList: PhoneList = phoneList.map((phone) => ({
@@ -41,7 +41,7 @@ const convertPhoneList = (phoneList: IUserFormPhone[]): PhoneList => {
     })).filter((phone) => phone.areaCode !== '');
 
     return newUserPhoneList;
-}
+};
 
 const convertAddressList = (addressList: IUserFormAddress[]): AddressList => {
     const newUserAddressList: AddressList  = addressList.map((address) => ({
@@ -54,7 +54,7 @@ const convertAddressList = (addressList: IUserFormAddress[]): AddressList => {
     })).filter((address) => address.street !== '');
 
     return newUserAddressList
-}
+};
 
 const convertDependentsList = (dependentsList: IUserFormDependent[]): DependentsList => {
     const newUserDependentsList: DependentsList = dependentsList.map((dependent) => ({
@@ -64,4 +64,4 @@ const convertDependentsList = (dependentsList: IUserFormDependent[]): Dependents
     }));
 
     return newUserDependentsList;
-}
+};

@@ -3,4 +3,4 @@ import { ICountry } from './country.interface';
 
 export interface ICountriesResponse extends IBaseCountriesResponse{
     data: ICountry[];
-}
+};

@@ -41,7 +41,7 @@ const returnAddressToDisplay = (address: IAddress | undefined, addressType: numb
       typeDescription: addressTypeDescriptionMap[addressType as AddressTypeEnum],
       ...address
     }
-}
+};
 
 const returnAddressToEdit = (address: IAddress | undefined, addressType: number): IAddressToDisplay => {
     if(!address){
@@ -62,4 +62,4 @@ const returnAddressToEdit = (address: IAddress | undefined, addressType: number)
       typeDescription: addressTypeDescriptionMap[addressType as AddressTypeEnum],
       ...address
     }
-}
+};

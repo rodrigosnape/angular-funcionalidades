@@ -4,5 +4,5 @@ export interface IAddress {
     complement: string;
     country: string;
     state: string;
-    city: string
-}
+    city: string;
+};

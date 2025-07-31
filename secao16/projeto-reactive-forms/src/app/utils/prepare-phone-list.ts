@@ -25,13 +25,13 @@ export const preparePhoneList =  (originalUserPhoneList: PhoneList, isDisplayPho
             phoneNumber: phoneNumber,
         });
     });
-}
+};
 
 
 const formatPhoneNumberToEdit = (phone: IPhone) => {
     return `${phone.internationalCode}${phone.areaCode}${phone.number}`.replace(/[+\-]/g, '');
-}
+};
 
 const formatPhoneNumberToDisplay = (phone: IPhone) => {
     return `${phone.internationalCode} ${phone.areaCode} ${phone.number}`;
-}
+};

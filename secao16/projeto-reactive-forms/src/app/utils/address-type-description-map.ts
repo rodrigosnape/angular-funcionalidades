@@ -4,4 +4,4 @@ import { AddressTypeEnum } from "../enums/address-type.enum";
       [AddressTypeEnum.RESIDENTIAL]: 'Residencial',
       [AddressTypeEnum.WORK]: 'Trabalho',
       [AddressTypeEnum.ALTERNATIVE]: 'Alternativo',
-    }
+    };
