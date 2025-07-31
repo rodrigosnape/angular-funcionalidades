@@ -11,6 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 import { IDialogConfirmationData } from './interfaces/dialog-confirmation-data.interface';
 import { UserInformationsContainerComponent } from './components/user-informations-container/user-informations-container.component';
+import { UserFormRawValueService } from './services/user-form-raw-value.service';
 
 @Component({
   selector: 'app-root',
@@ -26,17 +27,12 @@ export class AppComponent implements OnInit{
   userSelected: IUser = {} as IUser;
 
   usersList: UsersListResponse = [];
-
-  userFormRawValueTrigger: number = 0;
-  userFormRawValue: Object = {};
-
-  //@ViewChild(UserInformationsContainerComponent) userInfoContainerComp!: UserInformationsContainerComponent;
-
   
   constructor(
     private readonly _usersService: UsersService,
     private readonly _matDialog: MatDialog,
-    private readonly _updateUserService: UpdateUserService
+    private readonly _updateUserService: UpdateUserService,
+    private readonly _userFormRawValueService: UserFormRawValueService
   ){}
   
   ngOnInit(){
@@ -76,8 +72,6 @@ export class AppComponent implements OnInit{
   }
 
   onSaveButton() {
-    this.userFormRawValueTrigger += 1;
-    
     this.openConfirmationDialog({
         title: 'Confirmar alteração de dados',
         message: 'Deseja realmente salvar os valores alterados?',
@@ -129,10 +123,7 @@ export class AppComponent implements OnInit{
   }
 
   private convertUserFormToUser(): IUser {
-    //console.log('this.userInfoContainerComp',this.userInfoContainerComp);
-    //console.log('this.userInfoContainerComp getRawValue()',this.userInfoContainerComp.userForm.getRawValue());
-
-    console.log('this.userFormRawValue',this.userFormRawValue);
+    console.log('_userFormRawValueService',this._userFormRawValueService.userFormRawValue);
     return {} as IUser;
   }
 }

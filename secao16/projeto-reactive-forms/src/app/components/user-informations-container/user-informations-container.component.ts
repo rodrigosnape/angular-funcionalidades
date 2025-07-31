@@ -23,13 +23,9 @@ export class UserInformationsContainerComponent extends UserFormController imple
     private readonly _statesService = inject(StatesService);
 
 
-    @Input({ required: true }) userFormRawValueTrigger: number = 0;
-
     @Input({ required: true }) userSelected: IUser = {} as IUser;
 
     @Input({ required: true } ) isInEditMode: boolean = false;
-
-    @Output('userFormRawValue') userFormRawValueEmitt = new EventEmitter<Object>();
 
     @Output('onFormStatusChangeEmitt') onFormStatusChangeEmitt = new EventEmitter<boolean>();
     @Output('onUserFormFirstChange') onUserFormFirstChangeEmitt = new EventEmitter<void>();
@@ -54,12 +50,6 @@ export class UserInformationsContainerComponent extends UserFormController imple
         this.onUserFormFirstChange();
 
         this.getStatesList(this.userSelected.country);
-      }
-
-      const SEND_USER_FORM_RAW_VALUE = changes['userFormRawValueTrigger'];
-
-      if(SEND_USER_FORM_RAW_VALUE){
-        this.userFormRawValueEmitt.emit(this.userForm.getRawValue());
       }
     }
 
