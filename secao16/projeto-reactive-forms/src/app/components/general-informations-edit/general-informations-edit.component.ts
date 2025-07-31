@@ -68,11 +68,13 @@ export class GeneralInformationsEditComponent implements OnInit,  OnChanges{
   }
 
   private filterContriesList(searchTerm: string) {
+    if(!searchTerm) return;
      console.log('searchTerm',searchTerm);
      this.countriesListFiltered = this.countriesList.filter((country) => country.name?.toLowerCase().includes(searchTerm?.toLowerCase().trim()))
   }
   
   private filterStatesList(searchTerm: string) {
+     if(!searchTerm) return;
      console.log('searchTerm',searchTerm);
      this.statesListFiltered = this.statesList.filter((state) => state.name?.toLowerCase().includes(searchTerm?.toLowerCase().trim()))
   }
