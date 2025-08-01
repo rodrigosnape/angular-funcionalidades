@@ -1,1 +1,9 @@
 <p>primeiro works!</p>
+
+<!-- path relativo vai concatenar com a rota atual - funciona -->
+<a routerLink="filho-a" >Filho A - funciona</a>
+<br>
+<!-- path absoluto - dá erro -->
+<a routerLink="/filho-b">Filho B  - erro</a>
+
+<router-outlet></router-outlet>
