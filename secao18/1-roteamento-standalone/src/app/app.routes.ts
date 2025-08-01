@@ -32,28 +32,7 @@ export const routes: Routes = [
         loadComponent: () => import('./components/base/base.component').then(m => m.BaseComponent)},
     { path: 'componentes/primeiro', 
         title: 'Primeiro',
-        component: PrimeiroComponent,
-        children: [
-            {
-                path: '',
-                title: 'Filho A',
-                component: FilhoAComponent
-            },
-            {
-                path: 'filho-b',
-                title: 'Filho B',
-                component: FilhoBComponent
-            },
-            {
-                path:'redirect-b',
-                redirectTo: 'filho-b', //FUNCIONA
-                /* redirectTo: '/filho-b',  NÃO FUNCIONA*/
-            },
-            {
-                path: 'redirect-a',
-                redirectTo: ''
-            }
-        ]
+        loadChildren: () => import('./components/primeiro/primeiro.routes').then(m => m.PrimeiroRoutes),
     },
     { path: 'componentes/segundo', 
         title: 'Segundo',
