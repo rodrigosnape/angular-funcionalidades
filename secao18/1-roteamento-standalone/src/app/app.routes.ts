@@ -29,7 +29,7 @@ export const routes: Routes = [
         component: PrimeiroComponent,
         children: [
             {
-                path: 'filho-a',
+                path: '',
                 title: 'Filho A',
                 component: FilhoAComponent
             },
