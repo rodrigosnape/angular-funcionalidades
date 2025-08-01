@@ -1,17 +1,47 @@
 <div class="menu">
-  <div class="menu__item">
-      <a class="menu__link menu__link--selected">Início</a>
+  <div class="menu__item" routerLink="/" >
+      <a class="menu__link" routerLinkActive="menu__link--selected" [routerLinkActiveOptions]="{exact: true}">Início</a>
   </div>
-  <div class="menu__item">
-      <a class="menu__link">Informações</a>
+  <div class="menu__item" [routerLink]="rlaLogout.isActive ? null : '/informations'">
+      <a 
+        class="menu__link" 
+        [ngClass]="{
+          'menu__link--disabled': rlaLogout.isActive
+        }"
+        routerLinkActive="menu__link--selected"
+        #rlaInformations="routerLinkActive"
+      >Informações</a>
   </div>
-  <div class="menu__item">
-    <a class="menu__link menu__link--disabled">Contatos</a>
+  <div class="menu__item" [routerLink]="rlaLogout.isActive ? null : '/contacts'">
+    <a 
+      class="menu__link" 
+      [ngClass]="{
+          'menu__link--disabled': rlaLogout.isActive
+      }"
+      routerLinkActive="menu__link--selected"
+      #rlaContacts="routerLinkActive"
+      >Contatos</a>
   </div>
-  <div class="menu__item">
-    <a class="menu__link">Sobre</a>
+  <div class="menu__item" [routerLink]="rlaLogout.isActive ? null : '/about'">
+    <a 
+      class="menu__link"
+        [ngClass]="{
+          'menu__link--disabled': rlaLogout.isActive
+        }"
+      routerLinkActive="menu__link--selected"
+      #rlaAbout="routerLinkActive"
+    >Sobre</a>
   </div>
-  <div class="menu__item">
-    <a class="menu__link">Sair</a>
+  <div class="menu__item" routerLink="/logout">
+    <a 
+      class="menu__link" 
+      routerLinkActive="menu__link--selected" 
+      #rlaLogout="routerLinkActive">Sair</a>
   </div>
 </div>
+
+@if(!rlaInformations.isActive && !rlaContacts.isActive && !rlaAbout.isActive && !rlaLogout.isActive){
+  <p>Nenhuma rota está ativa!</p>
+}
+
+<router-outlet></router-outlet>
