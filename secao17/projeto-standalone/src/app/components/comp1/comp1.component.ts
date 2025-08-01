@@ -1,7 +1,8 @@
 import { CommonModule, LowerCasePipe, NgFor, NgIf } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { TransformTextPipe } from '../../pipes/transform-text.pipe';
 import { ChangeTextColorDirective } from '../../directives/change-text-color.directive';
+import { PersonService } from '../../services/person.service';
 
 @Component({
   selector: 'app-comp1',
@@ -17,6 +18,16 @@ import { ChangeTextColorDirective } from '../../directives/change-text-color.dir
   templateUrl: './comp1.component.html',
   styleUrl: './comp1.component.scss'
 })
-export class Comp1Component {
+export class Comp1Component implements OnInit{
+  
+  //Injeção de dependência mais atual
+  private readonly _personService = inject(PersonService);
+  
+  //Tradicional
+  //constructor(private readonly _personService: PersonService){}
+
+  ngOnInit(): void {
+    this._personService.getPerson().subscribe(console.log);
+  }
 
 }
