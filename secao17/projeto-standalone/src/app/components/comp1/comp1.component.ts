@@ -3,6 +3,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { TransformTextPipe } from '../../pipes/transform-text.pipe';
 import { ChangeTextColorDirective } from '../../directives/change-text-color.directive';
 import { PersonService } from '../../services/person.service';
+import { ComponentsNgModuleModule } from '../../ng-module/components-ng-module.module';
 
 @Component({
   selector: 'app-comp1',
@@ -14,6 +15,7 @@ import { PersonService } from '../../services/person.service';
     CommonModule,
     TransformTextPipe,
     ChangeTextColorDirective,
+    ComponentsNgModuleModule,
   ],
   templateUrl: './comp1.component.html',
   styleUrl: './comp1.component.scss'
