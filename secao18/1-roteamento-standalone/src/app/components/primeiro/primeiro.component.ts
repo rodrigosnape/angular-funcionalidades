@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-primeiro',
@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './primeiro.component.html',
   styleUrl: './primeiro.component.scss'
 })
-export class PrimeiroComponent implements OnInit{
+export class PrimeiroComponent implements OnInit, OnDestroy{
+  ngOnDestroy() {
+    console.log('PrimeiroComponent Destroy')
+  }
   ngOnInit() {
-    console.log('PrimeiroComponent');
+    console.log('PrimeiroComponent OnInit');
   }
 
 }
