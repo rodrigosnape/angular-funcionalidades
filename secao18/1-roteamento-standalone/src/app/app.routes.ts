@@ -17,9 +17,15 @@ import { FilhoBComponent } from './components/primeiro/components/filho-b/filho-
     { path: 'componentes/segundo', component: SegundoComponent},
 ]; */
 export const routes: Routes = [
-    { path: '',
+/*     { path: '',
         title: 'Inicial',
         component: InicialComponent        
+    }, */
+    {
+        path: '',
+        redirectTo: 'componentes',
+        /* redirectTo: '/componentes', funciona tb*/
+        pathMatch: 'full' //QUANDO O PATH FOR VAZIO
     },
     { path: 'componentes', 
         title: 'Componentes',
@@ -38,6 +44,15 @@ export const routes: Routes = [
                 title: 'Filho B',
                 component: FilhoBComponent
             },
+            {
+                path:'redirect-b',
+                redirectTo: 'filho-b', //FUNCIONA
+                /* redirectTo: '/filho-b',  NÃO FUNCIONA*/
+            },
+            {
+                path: 'redirect-a',
+                redirectTo: ''
+            }
         ]
     },
     { path: 'componentes/segundo', 
