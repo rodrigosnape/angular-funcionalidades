@@ -1,5 +1,6 @@
 import { CommonModule, LowerCasePipe, NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
+import { TransformTextPipe } from '../../pipes/transform-text.pipe';
 
 @Component({
   selector: 'app-comp1',
@@ -9,6 +10,7 @@ import { Component } from '@angular/core';
     //NgFor,
     //LowerCasePipe,
     CommonModule,
+    TransformTextPipe,
   ],
   templateUrl: './comp1.component.html',
   styleUrl: './comp1.component.scss'
