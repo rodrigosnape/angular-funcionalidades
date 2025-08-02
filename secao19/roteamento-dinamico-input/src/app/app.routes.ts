@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { UsersComponent } from './components/users/users.component';
 import { PostsComponent } from './components/posts/posts.component';
+import { PostCommentsComponent } from './components/posts/components/post-comments/post-comments.component';
 
 export const routes: Routes = [
     {
@@ -14,7 +15,13 @@ export const routes: Routes = [
         children: [
             {
                 path: 'posts/:userId',
-                component: PostsComponent
+                component: PostsComponent,
+                children: [
+                    {
+                        path: ':postId',
+                        component: PostCommentsComponent
+                    }
+                ]
             }
         ],
     },
