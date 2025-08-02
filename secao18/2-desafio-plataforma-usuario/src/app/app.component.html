@@ -1,19 +1,19 @@
 <div class="container">
   <div class="card">
     <div class="card__side-menu">
-      <div class="menu__item">
+      <div class="menu__item" routerLink="/" routerLinkActive="menu__item--selected" [routerLinkActiveOptions]="{exact: true}">
         <span class="material-symbols-outlined menu__item-icon">
           home
         </span>
         Início
       </div>
-      <div class="menu__item menu__item--selected">
+      <div class="menu__item" routerLink="general" routerLinkActive="menu__item--selected">
         <span class="material-symbols-outlined menu__item-icon">
           person
         </span>
         Geral
       </div>
-      <div class="menu__item">
+      <div class="menu__item" routerLink="/transactions" routerLinkActive="menu__item--selected">
         <span class="material-symbols-outlined menu__item-icon">
           credit_card
         </span>
