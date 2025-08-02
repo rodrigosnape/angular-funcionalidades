@@ -1,7 +1,14 @@
-@for(user of usersList$ | async; track user){
-    <div style="cursor: pointer;" [routerLink]="['/posts', user.id]">
-        <div>Id: {{ user.id }}</div>
-        <div>Nome: {{ user.name }}</div>
+<div style="display: flex;">
+    <div style="width: 50%;">
+        @for(user of usersList$ | async; track user){
+            <div style="cursor: pointer;" [routerLink]="['posts', user.id]">
+                <div>Id: {{ user.id }}</div>
+                <div>Nome: {{ user.name }}</div>
+            </div>
+        }
     </div>
+    <div style="width: 50%;">
+        <router-outlet></router-outlet>
+    </div>
+</div>
 
-}

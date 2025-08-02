@@ -2,7 +2,7 @@ import { Observable, of } from 'rxjs';
 import { Component, inject, OnInit } from '@angular/core';
 import { UsersService, IUser } from '../../services/users.service';
 import { AsyncPipe } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-users',
@@ -10,6 +10,7 @@ import { RouterLink } from '@angular/router';
   imports: [
     AsyncPipe,
     RouterLink,
+    RouterOutlet,
   ],
   templateUrl: './users.component.html',
   styleUrl: './users.component.scss'
