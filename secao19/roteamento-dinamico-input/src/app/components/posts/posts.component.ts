@@ -17,9 +17,14 @@ export class PostsComponent implements OnInit {
 
   private readonly _postsService = inject(PostsService);
 
+  private _userId: string = ''; 
+
   /* @Input() userId: string = ''; */
   @Input() set userId(value:string) {
     console.log(value);
+
+    this._userId = value;
+
     this.postsList$ = this._postsService.getUserPosts(value);
   }
 
@@ -28,5 +33,9 @@ export class PostsComponent implements OnInit {
   ngOnInit() {
     console.log('ngOnInit',this.userId);
     /* this.postsList$ = this._postsService.getUserPosts(this.userId); */
+  }
+
+  getUserId() {
+    console.log(this._userId);
   }
 }

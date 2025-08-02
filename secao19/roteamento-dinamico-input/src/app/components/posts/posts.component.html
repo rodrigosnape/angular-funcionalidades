@@ -1,3 +1,4 @@
+<button (click)="getUserId()">userId</button>
 @for(post of postsList$ | async; track post){
     <div style="padding: 10px">
         <div>Título: {{ post.title }}</div>
