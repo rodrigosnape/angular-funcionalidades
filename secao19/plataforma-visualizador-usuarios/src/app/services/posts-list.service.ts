@@ -7,7 +7,7 @@ import { IPost } from "../interfaces/post.interface";
 @Injectable({
     providedIn: 'root'
 })
-export class PostsListSerice {
+export class PostsListService {
     private readonly _http = inject(HttpClient);
 
     getUserPosts(userId: string): Observable<PostsListResponse> {
