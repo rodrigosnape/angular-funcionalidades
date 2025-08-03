@@ -4,3 +4,12 @@
         <div>Nome: {{ user.name }}</div>
     </div>
 }
+
+<div style="display: flex; justify-content:space-evenly">
+    <a routerLink="/users-list">Usuários</a>
+    <a routerLink="todos" routerLinkActive="item-selected">Todos</a>
+    <a routerLink="albums" routerLinkActive="item-selected">Albums</a>
+    <a routerLink="posts" routerLinkActive="item-selected">Posts</a>
+</div>
+
+<router-outlet></router-outlet>

@@ -3,12 +3,16 @@ import { Observable, of } from 'rxjs';
 import { IUser } from '../../interfaces/user.interface';
 import { UserListService } from '../../services/users-list.service';
 import { AsyncPipe } from '@angular/common';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-user-container',
   standalone: true,
   imports: [
-    AsyncPipe
+    AsyncPipe,
+    RouterOutlet,
+    RouterLink,
+    RouterLinkActive,
   ],
   templateUrl: './user-container.component.html',
   styleUrl: './user-container.component.scss'
