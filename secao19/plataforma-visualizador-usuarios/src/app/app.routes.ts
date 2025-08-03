@@ -6,6 +6,7 @@ import { AlbumsComponent } from './components/user-container/components/albums/a
 import { TodosComponent } from './components/user-container/components/todos/todos.component';
 import { PostsComponent } from './components/user-container/components/posts/posts.component';
 import { PostComponent } from './components/user-container/components/post/post.component';
+import { CommentsComponent } from './components/user-container/components/post/components/comments/comments.component';
 
 export const routes: Routes = [
     {
@@ -42,7 +43,13 @@ export const routes: Routes = [
             },
             {
                 path: 'post/:postId',
-                component: PostComponent
+                component: PostComponent,
+                children: [
+                    {
+                        path: 'comments',
+                        component: CommentsComponent
+                    }
+                ],
             }
         ],
     },

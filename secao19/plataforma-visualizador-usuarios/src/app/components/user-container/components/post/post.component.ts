@@ -3,13 +3,16 @@ import { IPost } from '../../../../interfaces/post.interface';
 import { Observable, of } from 'rxjs';
 import { PostsListService } from '../../../../services/posts-list.service';
 import { AsyncPipe } from '@angular/common';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-post',
   standalone: true,
   imports: [
     AsyncPipe,
-  ],
+    RouterLink,
+    RouterOutlet
+],
   templateUrl: './post.component.html',
   styleUrl: './post.component.scss'
 })
