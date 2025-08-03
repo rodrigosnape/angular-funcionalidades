@@ -3,13 +3,13 @@ import { inject, Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { TodosListResponse } from "../types/todos-list-response";
 
-Injectable({
+@Injectable({
     providedIn: 'root'
 })
 export class TodosListService{
     private readonly _http = inject(HttpClient);
 
     getUserTodos(userId: string): Observable<TodosListResponse> {
-        return this._http.get<TodosListResponse>(`https://jsonplaceholder.typicode.com/todos?userId=${userId}`);
+        return this._http.get<TodosListResponse>('https://jsonplaceholder.typicode.com/todos?userId=' + userId);
     }
 }
