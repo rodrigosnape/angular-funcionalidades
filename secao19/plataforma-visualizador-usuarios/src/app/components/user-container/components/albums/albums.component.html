@@ -1,1 +1,8 @@
-<p>albums works!</p>
+<h1>Albums:</h1>
+
+@for(album of albumsList$ | async; track album){
+    <div style="padding: 10px;">
+        <div>Código: {{ album.id }}</div>
+        <div>Título: {{ album.title }}</div>
+    </div>
+}
