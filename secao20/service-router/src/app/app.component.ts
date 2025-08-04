@@ -12,7 +12,13 @@ export class AppComponent {
   private readonly _router = inject(Router);
 
   navigateToCards() {
-    this._router.navigate(['cards']);
+    this._router.navigate(['cards'],{
+      queryParams: {
+        id: 3,
+        nome: 'Renato',
+        status: 'ok'
+      }
+    });
   }
   navigateToInformations() {
     this._router.navigate(['informations'],{
@@ -23,7 +29,15 @@ export class AppComponent {
     });
   }
   navigateToContacts() {
-    this._router.navigate(['contacts']);
+    this._router.navigate(['contacts'], {
+      queryParams: {
+        id: 2,
+        idade: 9,
+        isAdmin: true
+      },
+      //queryParamsHandling: 'preserve',
+      queryParamsHandling: 'merge'
+    });
   }
   navigateToInitial() {
     this._router.navigate(['initial'], {
