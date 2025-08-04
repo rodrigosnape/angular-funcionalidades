@@ -1,1 +1,7 @@
-<p>comments works!</p>
+<h1>Comments:</h1>
+@for(comment of commentsList$ | async; track comment){
+    <div style="padding: 10px;">
+        <div>Nome: {{ comment.name }}</div>
+        <div>Conteúdo: {{ comment.body }}</div>
+    </div>
+}
