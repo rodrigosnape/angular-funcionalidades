@@ -15,12 +15,22 @@ export class AppComponent {
     this._router.navigate(['cards']);
   }
   navigateToInformations() {
-    this._router.navigate(['informations']);
+    this._router.navigate(['informations'],{
+      queryParams: {
+        nome: 'Rodrigo',
+        idade: 44,
+      }
+    });
   }
   navigateToContacts() {
     this._router.navigate(['contacts']);
   }
   navigateToInitial() {
-    this._router.navigate(['initial']);
+    this._router.navigate(['initial'], {
+      queryParams: {
+        isActive: true,
+        isAdmin: false,
+      }
+    });
   }
 }
