@@ -1,0 +1,10 @@
+<h2>Cartão:</h2>
+
+@if(userCard$ | async; as card;){
+    <div>Id: {{ card.id }}</div>
+    <div>Número: {{ card.numero }}</div>
+    <div>Tipo: {{ card.tipo }}</div>
+    <div>Titular: {{ card.titular }}</div>
+    <div>Validade: {{ card.validade }}</div>
+    <div>CVV: {{ card.cvv }}</div>
+}
