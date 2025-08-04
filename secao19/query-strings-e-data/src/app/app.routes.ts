@@ -5,5 +5,9 @@ export const routes: Routes = [
     {
         path: 'comp1',
         component: Comp1Component
+    },
+    {
+        path: 'comp2',
+        component: Comp1Component
     }
 ];

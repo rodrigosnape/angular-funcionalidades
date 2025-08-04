@@ -1,4 +1,8 @@
 <button routerLink="/comp1" [queryParams]="{nome: 'Rodrigo', idade: 44}">Redirecionar Rodrigo</button>
 <button routerLink="/comp1" [queryParams]="{nome: 'Renato', idade: 9}">Redirecionar Renato</button>
+<br/>
+<br/>
+<button routerLink="/comp1">Redirecionar sem preservar</button>
+<button routerLink="/comp2" queryParamsHandling="preserve">Redirecionar PRESERVANDO</button>
 
 <router-outlet></router-outlet>
