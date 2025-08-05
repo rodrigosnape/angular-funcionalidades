@@ -47,4 +47,8 @@ export class AuthService {
 
         return decoded.walletStatus;
     }
+
+    logout(){
+        localStorage.removeItem('access-token');
+    }
 }

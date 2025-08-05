@@ -13,6 +13,7 @@ import { authWithScopesGuard } from './guards/auth-with-scopes.guard';
 import { walletGuard } from './guards/wallet.guard';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { generalInfosResolver } from './resolvers/general-infos.resolver';
+import { logoutGuard } from './guards/logout.guard';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -22,6 +23,7 @@ export const routes: Routes = [
         component: DashboardComponent,
         canActivate: [authWithScopesGuard('dashboard')],
         canActivateChild: [authGuard()],
+        canDeactivate: [logoutGuard()],
         children: [
             { path: '', redirectTo: 'general', pathMatch: 'full' },
             { 
