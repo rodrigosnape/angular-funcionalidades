@@ -1,5 +1,5 @@
-import { RouterOutlet } from '@angular/router';
-import { Component } from '@angular/core';
+import { ActivatedRoute, Router, RouterOutlet } from '@angular/router';
+import { Component, inject } from '@angular/core';
 
 @Component({
   selector: 'app-payments',
@@ -9,5 +9,21 @@ import { Component } from '@angular/core';
   styleUrl: './payments.component.scss'
 })
 export class PaymentsComponent {
+  isWalletBlocked = false;
+
+  private readonly _router = inject(Router);
+  private readonly _activatedRoute = inject(ActivatedRoute);
+
+  navigate(path: string) {
+    this._router.navigate([path], { relativeTo: this._activatedRoute}).then( (success) => {
+      console.log(success);
+      if(success === null) return;
+      if(success){
+        this.isWalletBlocked = false;
+      } else {
+        this.isWalletBlocked = true
+      }
+    });
+  }
 
 }
