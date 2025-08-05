@@ -7,6 +7,7 @@ import { PaymentsComponent } from './components/payments/payments.component';
 import { AdminComponent } from './components/admin/admin.component';
 import { DebitComponent } from './components/debit/debit.component';
 import { CreditComponent } from './components/credit/credit.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full'},
@@ -14,6 +15,7 @@ export const routes: Routes = [
     { 
         path: 'dashboard', 
         component: DashboardComponent,
+        canActivate: [authGuard()],
         children: [
             { path: '', redirectTo: 'general', pathMatch: 'full' },
             { path: 'general', component: GeneralComponent },
