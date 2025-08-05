@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { ObservableService } from './observable.service';
-import { map, Subscription, switchMap } from 'rxjs';
+import { map, Subscription, switchMap, take } from 'rxjs';
 
 @Component({
   selector: 'app-observable-simples',
@@ -52,6 +52,7 @@ export class ObservableSimplesComponent {
 
         return this._observableService.obs2();
       }),
+      take(1) //Ouve 1 next e completa o observer Ele tem que vir no final do pipe
     ).subscribe( (valueObs2) => {
       console.log('Value Obs 2', valueObs2);
     })
