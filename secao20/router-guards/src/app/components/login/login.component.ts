@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { firstValueFrom } from 'rxjs';
 
 
 @Component({
@@ -24,7 +25,14 @@ export class LoginComponent {
   onLogin() {
     console.log(this.loginForm.value.username, this.loginForm.value.password);
 
-    this._authService.login(this.loginForm.value.username, this.loginForm.value.password).subscribe({
+    // Promise pode ser utilizada. 
+    // Neste caso o Observable recebido é convertido em Promise.
+/*     firstValueFrom(this._authService.login(this.loginForm.value.username, this.loginForm.value.password))
+    .then((token) => { console.log('token', token)})
+    .catch((error) => { console.log('error', error)}); */
+
+    //Original Observable
+     this._authService.login(this.loginForm.value.username, this.loginForm.value.password).subscribe({
       next: (_) => {
         this._router.navigate(['dashboard'])
       },
