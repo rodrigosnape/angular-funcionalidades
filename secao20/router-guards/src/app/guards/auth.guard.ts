@@ -12,9 +12,11 @@ export const authGuard = (): CanActivateFn => {
 
         return authService.verifyToken().pipe(
             catchError( () => {
+                console.log('authGuard erro');
                return router.navigate(['login']);
             }),
             map(() => {
+                console.log('authGuard sucesso');
                 return true
             })
         );
