@@ -74,4 +74,34 @@ export class PromisesComponent {
       .catch( (error) => { console.log('Erro', error) })
       .finally( () => console.log('Finally'));
     }
+
+    async userTodos(){
+      console.log('userTodos');
+
+      //Calback Hell !!!
+      //Não precisa do async no método
+      /* this._promisesService.getUsers().then((response: any) => {
+        this._promisesService.getUserTodos(response[0].id).then((userTodos) => {
+          console.log(userTodos);
+        });
+      }) */
+
+        //Solução elegante
+        //Precisa do async no método
+        try {
+          console.log('Dentro do try');
+
+          const usersList:any[] = await this._promisesService.getUsers() as any[];
+  
+          const userTodos = await this._promisesService.getUserTodos(usersList[0].id);
+          
+          console.log('Response User Todos: ',userTodos);
+
+        } catch(error){ //só com o catch que se capturam o erros do await
+          console.log('Catch', error);
+        }
+
+        console.log('final do userTodos()');
+
+    }
 }
