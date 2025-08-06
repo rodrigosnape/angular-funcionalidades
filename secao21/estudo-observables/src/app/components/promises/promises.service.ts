@@ -19,4 +19,14 @@ export class PromisesService {
     }})
   }
 
+  promiseRejected(){
+    return new Promise((resolve, reject) => {
+      console.log('Promise Reject');
+
+      reject('Ocorreu um erro');
+
+      console.log('Final da Promisse');
+    })
+  }
+
 }
