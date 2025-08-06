@@ -30,6 +30,34 @@ app.post('/login', (req, res) => {
 
 });
 
+app.put('/update-user', authenticateToken, (req, res) => {
+    const tokenUserName = req.username;
+    const newUserInfos = req.body;
+
+    const { name, email, username, password } = newUserInfos;
+
+    console.log('--->', name);
+
+    if(!name || !email || !username || !password){
+        return res.status(400).json({ message: 'All fields (name, email, username, password) are required' });
+    }
+
+    const USER_FOUND = USERS_LIST_BD.findIndex((user) => user.username === tokenUserName);
+
+    if(USER_FOUND === -1){
+        return res.status(403).json({ message: 'User not found'});
+    }
+
+    USERS_LIST_BD[USER_FOUND] = newUserInfos;
+
+    const newToken = generateTokenOnLogin( username);
+
+    return res.status(200).json({ 
+        message: 'User updated successfully.',
+        token: newToken,
+    });
+});
+
 app.post('/validate-token', authenticateToken, (req, res) => {
     res.json({ message: 'Token Válido', username: req.username});
 })
