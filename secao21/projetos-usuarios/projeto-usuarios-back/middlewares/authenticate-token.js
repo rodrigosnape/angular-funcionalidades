@@ -9,12 +9,14 @@ const authenticateToken = (req, res, next) => {
         return res.status(401).json({ message: 'Token not provided.'});
     }
 
-    const TOKEN_IS_VALID = validateToken(token);
+    const TOKEN_DECODED = validateToken(token);
 
-    if(!TOKEN_IS_VALID){
+    if(!TOKEN_DECODED){
         //return res.sendStatus(403);
         return res.status(403).json({ message: 'Invalid or expired token.'});
     }
+
+    req.username = TOKEN_DECODED.username;
 
     next();
 }
