@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { firstValueFrom } from 'rxjs';
+import { firstValueFrom, map, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -41,6 +41,30 @@ export class PromisesService {
   }
   getUserTodos(userId: number){
     return firstValueFrom(this._httpClient.get('https://jsonplaceholder.typicode.com/todos?userId=' + userId));
+  }
+
+  getUsersFirstValueFrom(){
+    //recebe o primeiro valor e já faz o unsubscribe
+    return firstValueFrom(this._httpClient.get('https://jsonplaceholder.typicode.com/users').pipe(
+      map((usersListResponse: any) => {
+        return usersListResponse[0];
+      })
+    ));
+  }
+
+  getPromiseInterval(){
+    return firstValueFrom(
+      new Observable((observer) => {
+        const interval = setInterval(() => {
+          console.log('Interval');
+          observer.next('valor emitido');
+        }, 1000);
+        //é chamado quando é finalizado
+        return () => {
+          clearInterval(interval);
+          console.log('finalizado');
+        }
+    }))
   }
 
 }
