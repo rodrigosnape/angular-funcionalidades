@@ -63,4 +63,15 @@ export class PromisesComponent {
       .catch( (error) => { console.log('Erro', error) })
       .finally( () => console.log('Finally'));
     }
+
+    //NUNCA cai no catch. Pega as responses com os valores (sucesso) e com reason(falha)
+    promiseAllSettled(){
+      Promise.allSettled([
+        this._promisesService.getUsers(),
+        this._promisesService.getTodos(),
+      ])
+      .then( (response) => { console.log('Response', response) })
+      .catch( (error) => { console.log('Erro', error) })
+      .finally( () => console.log('Finally'));
+    }
 }
