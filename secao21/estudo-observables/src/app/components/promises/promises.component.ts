@@ -10,14 +10,14 @@ import { PromisesService } from './promises.service';
 })
 export class PromisesComponent {
   
-  private readonly _promisesService = inject(PromisesService)
+  private readonly _promisesService = inject(PromisesService);
   
   ngOnInit(){
 /*     this._promisesService.promiseSimples().then( (value) => {
       console.log('Then ', value)
     });    */ 
 
-      console.log('1');
+/*       console.log('1');
 
       this._promisesService.promiseRejected()
         .then( () => console.log('Resolved'))
@@ -28,6 +28,16 @@ export class PromisesComponent {
           console.log("Finally");
         });
 
-        console.log('2');
+        console.log('2'); */
+    }
+
+    promiseAll(){
+      Promise.all([
+        this._promisesService.getUsers(),
+        this._promisesService.getTodos(),
+      ])
+      .then( (response) => { console.log('Response', response) })
+      .catch( (error) => { console.log('Erro', error) })
+      .finally( () => console.log('Finally'));
     }
 }

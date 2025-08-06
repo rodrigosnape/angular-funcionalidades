@@ -1,9 +1,13 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { inject, Injectable } from '@angular/core';
+import { firstValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PromisesService {
+
+  private readonly _httpClient = inject(HttpClient);
 
   promiseSimples(){
     return new Promise( (resolve, reject) => {{
@@ -27,6 +31,13 @@ export class PromisesService {
 
       console.log('Final da Promisse');
     })
+  }
+
+  getUsers(){
+    return firstValueFrom(this._httpClient.get('https://jsonplaceholder.typicode.com/users'));
+  }
+  getTodos(){
+    return firstValueFrom(this._httpClient.get('https://jsonplaceholder.typicode.com/todos'));
   }
 
 }
