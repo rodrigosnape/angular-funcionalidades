@@ -17,6 +17,8 @@ export class PromisesComponent {
       console.log('Then ', value)
     });    */ 
 
+      console.log('1');
+
       this._promisesService.promiseRejected()
         .then( () => console.log('Resolved'))
         .catch( (error) => {
@@ -25,5 +27,7 @@ export class PromisesComponent {
         .finally(() => {
           console.log("Finally");
         });
-  }
+
+        console.log('2');
+    }
 }
