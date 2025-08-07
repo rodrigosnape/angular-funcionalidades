@@ -25,7 +25,7 @@ export class LoginComponent {
     this._loginService.login(this.loginForm.value.username, this.loginForm.value.password).subscribe({
       next: (tokenResponse) => {
         //console.log(tokenResponse);
-        //this._router.navigate(['user-infos']);
+        this._router.navigate(['user-infos']);
       },
       error: (error: HttpErrorResponse) => {
         console.log(error);

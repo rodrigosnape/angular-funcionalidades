@@ -16,13 +16,13 @@ export class LoginService {
 
     return this._httpClient.post<ILoginResponse>('http://localhost:3000/login', {username, password}, 
       { 
-        reportProgress: true,
+        //reportProgress: true,
         //observe: 'response',
         headers,
         context: new HttpContext().set(AUTH_TOKEN_ENABLED, false)
       }).pipe(
       map((tokenResponse) => {
-        // localStorage.setItem('token', tokenResponse.token);
+        localStorage.setItem('token', tokenResponse.token);
         return tokenResponse;
       })
     );
