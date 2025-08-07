@@ -6,5 +6,11 @@ export function authInterceptor(req: HttpRequest<unknown>, next: HttpHandlerFn):
     console.log('authInterceptor',authInterceptor);
     console.log('req',req);
 
-    return next(req);
+    //É obrigatório clonar uma requisição para adicionar um header
+    const newReq = req.clone({
+        headers: req.headers.set('Authorization', 'Bearer ' + localStorage.getItem('token')),
+    });
+
+
+    return next(newReq);
 }
