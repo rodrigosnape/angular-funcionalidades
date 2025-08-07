@@ -13,8 +13,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class LoginComponent {
   loginForm: FormGroup = new FormGroup({
-    username: new FormControl(''),
-    password: new FormControl(''),
+    username: new FormControl('rod'),
+    password: new FormControl('rod'),
   });
 
   private readonly _router = inject(Router);
@@ -25,7 +25,7 @@ export class LoginComponent {
     this._loginService.login(this.loginForm.value.username, this.loginForm.value.password).subscribe({
       next: (tokenResponse) => {
         //console.log(tokenResponse);
-        this._router.navigate(['user-infos']);
+        //this._router.navigate(['user-infos']);
       },
       error: (error: HttpErrorResponse) => {
         console.log(error);

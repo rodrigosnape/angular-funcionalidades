@@ -11,16 +11,18 @@ export class LoginService {
 
   private readonly _httpClient = inject(HttpClient);
 
-  login(username:string, password: string): Observable<ILoginResponse> {
+  login(username:string, password: string): Observable<any> {
     const headers = new HttpHeaders().set('useAuth', 'n');
 
     return this._httpClient.post<ILoginResponse>('http://localhost:3000/login', {username, password}, 
       { 
+        reportProgress: true,
+        //observe: 'response',
         headers,
         context: new HttpContext().set(AUTH_TOKEN_ENABLED, false)
       }).pipe(
       map((tokenResponse) => {
-        localStorage.setItem('token', tokenResponse.token);
+        // localStorage.setItem('token', tokenResponse.token);
         return tokenResponse;
       })
     );
